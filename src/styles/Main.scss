@@ -1,0 +1,21 @@
+/**
+ * 1............功能样式
+ * 2............全局样式
+ */
+// 功能样式：
+//          清除浮动：
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+//全局样式：
+//        全局剧中
+.g-main {
+    .g-wrap {
+        width: 980px;
+        margin: 0 auto;
+    }
+}
