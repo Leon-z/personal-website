@@ -6,18 +6,32 @@ var IFETask_4 = React.createClass({
 			aqiDataArr:[]//空气质量数组，{city:'',value:0} 
 		};
 	},
+	/**
+	 * 点击add-btn时的处理逻辑
+	 * 获取用户输入，更新数据，并进行页面呈现的更新
+	 */
 	addData(){
-		var aqiData=[{
+		//用户输入的城市名必须为中英文字符，空气质量指数必须为整数
+		var city=this.refs.city.value,aqi=this.refs.aqi.value;
+		var cityOk=!(/[^a-zA-Z\u4e00-\u9fa5]/i.test(city)),aqiOk=!(/[^0-9]/i.test(aqi));
+		if(cityOk&&aqiOk){
+			var aqiData=[{
 				city:this.refs.city.value,
 				value:this.refs.aqi.value
 			}],
 			newData=this.state.aqiDataArr.concat(aqiData);
-		this.refs.city.value='';
-		this.refs.aqi.value='';
-		this.setState({
-			aqiDataArr: newData
-		});
-
+			this.refs.city.value='';
+			this.refs.aqi.value='';
+			this.setState({
+				aqiDataArr: newData
+			});
+		}else if(!cityOk&&!aqiOk){
+			alert('城市名必须为中英文字符,并且空气质量指数必须为整数');
+		}else if(!cityOk){
+			alert('城市名必须为中英文字符');
+		}else{
+			alert('空气质量指数必须为整数');
+		}
 	},
 	delete(item){
 		var arr=[];

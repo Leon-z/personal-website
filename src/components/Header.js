@@ -12,17 +12,17 @@ var Header = React.createClass({
 				transitionAppearTimeout={500}
 				transitionLeave={false}
 			>
-			<header className="m-header" key="header">
-				<section className="g-wrap">
-					<div className="logo"></div>
-					<nav className="header-nav clearfix" >
-						<div className="home item">首页</div>
-						<div className="blog item">博客</div>
-						<div className="work item">项目</div>
-						<div className="about item">关于我</div>
-					</nav>
-				</section>
-			</header>
+				<header className="m-header" key="header">
+					<section className="g-wrap">
+						<div className="logo"></div>
+						<nav className="header-nav clearfix" >
+							<div className="home item">首页</div>
+							<div className="blog item">博客</div>
+							<div className="work item">项目</div>
+							<div className="about item">关于我</div>
+						</nav>
+					</section>
+				</header>
 			</ReactCSSTransitionGroup>
 		);
 	}

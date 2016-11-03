@@ -2,7 +2,7 @@ require('normalize.css/normalize.css');
 require('styles/Main.scss');
 import React from 'react';
 import Header from './Header';
-import IFETask_4 from './IFEtask/IFETask_4.js';
+import IFETask_5 from './IFEtask/IFETask_5.js';
 
 
 var Main = React.createClass({
@@ -10,7 +10,7 @@ var Main = React.createClass({
 		return (
 			<div className="g-main">
 				<Header/>
-				<IFETask_4/>
+				<IFETask_5/>
 			</div>
 		);
 	}

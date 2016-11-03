@@ -7,3 +7,21 @@
 		list-style: none;
 	}
 }
+//task-5
+.task-5{
+	.aqi-chart-wrap{
+		display: flex;
+	    width: 90%;
+	    height: 500px;
+	    justify-content: center;
+	    align-items: flex-end;
+	    align-content: center;
+	    margin: 10px auto;
+	    padding: 10px;
+	    border: 2px solid #000;
+	    .item{
+	    	margin: 0 2px;
+	    	flex: 1;
+	    }
+	}
+}
