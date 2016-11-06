@@ -73,7 +73,7 @@ var IFETask_6 = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="task-6">
+			<div className="task-6 task-7">
 				<div className="btn-item left" onClick={this.queue_first_in}>左侧入</div>
 				<div className="btn-item left" onClick={this.queue_first_out}>左侧出</div>
 				<input className="num-input" ref="input" />
