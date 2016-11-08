@@ -21,11 +21,15 @@ var IFETask_6 = React.createClass({
 	//左进
 	queue_first_in(){
 		var value=this.refs.input.value;
-		if(typeof Number(value)!='number'||isNaN(Number(value))){
-			alert('请输入数字');
+
+		if(value==''){
+			alert('请输入些数字吧');
 			return
 		}else if(Math.floor(value)!=value){
 			alert('请输入整数');
+			return
+		}else if(typeof Number(value)!='number'||isNaN(Number(value))){
+			alert('请输入数字');
 			return
 		}
 		var newQueueArr=this.state.queueArr.concat();

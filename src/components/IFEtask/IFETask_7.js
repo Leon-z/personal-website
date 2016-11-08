@@ -3,10 +3,17 @@ import React from 'react';
 var IFETask_6 = React.createClass({
 	getInitialState: function() {
 		return {
-			queueArr: this.randomArray(5,100,400),
+			queueArr: this.randomArray(40,10,100),
 			queueCancelArr:[]
 		};
 	},
+	/**
+	 * 随机数生成
+	 * @param  {[num]} length [需要随机数的个数]
+	 * @param  {[num]} min    [随机数最小值]
+	 * @param  {[num]} max    [随机数最大值]
+	 * @return {[arr]}        [生成的随机数组成的数组]
+	 */
 	randomArray(length,min,max){
 		var arr=[];
 		for(var i=0;i<length;i++){
@@ -21,11 +28,17 @@ var IFETask_6 = React.createClass({
 	//左进
 	queue_first_in(){
 		var value=this.refs.input.value;
-		if(typeof Number(value)!='number'||isNaN(Number(value))){
+		if(value==''){
+			alert('请输入10~100间的整数');
+			return
+		}else if(typeof Number(value)!='number'||isNaN(Number(value))){
 			alert('请输入数字');
 			return
 		}else if(Math.floor(value)!=value){
 			alert('请输入整数');
+			return
+		}else if(value>100||value<10){
+			alert('请输入10~100间的整数');
 			return
 		}
 		var newQueueArr=this.state.queueArr.concat();
@@ -48,11 +61,17 @@ var IFETask_6 = React.createClass({
 	//右进
 	queue_last_in(){
 		var value=this.refs.input.value;
-		if(typeof Number(value)!='number'||isNaN(Number(value))){
+		if(value==''){
+			alert('请输入10~100间的整数');
+			return
+		}else if(typeof Number(value)!='number'||isNaN(Number(value))){
 			alert('请输入数字');
 			return
 		}else if(Math.floor(value)!=value){
 			alert('请输入整数');
+			return
+		}else if(value>100||value<10){
+			alert('请输入10~100间的整数');
 			return
 		}
 		var newQueueArr=this.state.queueArr.concat();
@@ -73,7 +92,7 @@ var IFETask_6 = React.createClass({
 	},
 	render: function() {
 		return (
-			<div className="task-6 task-7">
+			<div className="task-7">
 				<div className="btn-item left" onClick={this.queue_first_in}>左侧入</div>
 				<div className="btn-item left" onClick={this.queue_first_out}>左侧出</div>
 				<input className="num-input" ref="input" />
@@ -96,7 +115,7 @@ var QueueShow=React.createClass({
 	},
 	render: function() {
 		var queueList=this.props.queueArr.map((value,item)=>{
-			return <li className="queue-item" key={'queue'+item}>{value}</li>
+			return <li className="queue-item" style={{height:value}} key={'queue'+item}></li>
 		});
 		return (
 			<ul className="queueArr">
