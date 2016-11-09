@@ -78,7 +78,7 @@
 
 //task-7
 .task-7 {
-    width: 645px;
+    width: 800px;
     margin-top: 20px;
     .btn-item {
         margin: 0 30px;
@@ -88,7 +88,7 @@
         color: #fff;
         text-align: center;
         border-radius: 4px;
-        background-color: rgb(105, 165, 91);
+        background-color:#2980d5;
         cursor: pointer;
         user-select: none;
         &.left {
@@ -110,13 +110,17 @@
         .queue-item {
             display: inline-block;
             color: #FFF;
-            background: #000;
+            background-color: #ab9999;
             padding: 4px;
             padding-top: 5px;
             margin: 2px;
             width: 12px;
             font-size: 8;
             text-align: center;
+            transition:all 0.1s ease-in-out;
+            &.match{
+            	background-color: #2980d5;
+            }
         }
     }
     p {

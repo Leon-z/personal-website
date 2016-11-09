@@ -3,8 +3,10 @@ import React from 'react';
 var IFETask_6 = React.createClass({
 	getInitialState: function() {
 		return {
-			queueArr: this.randomArray(40,10,100),
-			queueCancelArr:[]
+			queueArr: this.randomArray(10,10,100),
+			queueCancelArr:[],
+			onSelect:0,
+			onMatch:[0,0]
 		};
 	},
 	/**
@@ -90,6 +92,35 @@ var IFETask_6 = React.createClass({
 			queueCancelArr:newQueueCancelArr
 		},alert(cancelNum))
 	},
+	//冒泡排序
+	bubbleSort(){
+		var sortArr=this.state.queueArr;
+		var i=0;
+		var j=0;
+		setInterval(match.bind(this),100);
+		function match() {
+			var arr=this.state.queueArr.concat();
+			this.setState({
+				onSelect:1,
+				onMatch:[j,j+1] 
+			},function () {
+				if(sortArr[j]>sortArr[j+1]){
+					sortArr[j]=sortArr[j]+sortArr[j+1]-(sortArr[j+1]=sortArr[j])
+				}
+				this.setState({
+					queueArr: sortArr
+				},function () {
+					if(j>=sortArr.length-i-2){
+						j=0;
+						i++;
+					}else{
+						j++
+					}
+				});
+			});
+		}
+
+	},
 	render: function() {
 		return (
 			<div className="task-7">
@@ -98,8 +129,13 @@ var IFETask_6 = React.createClass({
 				<input className="num-input" ref="input" />
 				<div className="btn-item right" onClick={this.queue_last_in}>右侧入</div>
 				<div className="btn-item right" onClick={this.queue_last_out}>右侧出</div>
+				<div className="btn-item right" onClick={this.bubbleSort}>冒泡</div>
 				<p>数组</p>
-				<QueueShow queueArr={this.state.queueArr}/>
+				<QueueShow
+					queueArr={this.state.queueArr}
+					onSelect={this.state.onSelect}
+					onMatch={this.state.onMatch}
+				/>
 				<p>被删除的数</p>
 				<QueueOfCancel queueArr={this.state.queueCancelArr}/>
 			</div>
@@ -115,7 +151,13 @@ var QueueShow=React.createClass({
 	},
 	render: function() {
 		var queueList=this.props.queueArr.map((value,item)=>{
-			return <li className="queue-item" style={{height:value}} key={'queue'+item}></li>
+			return (
+				<li  
+					className={this.props.onSelect&&(this.props.onMatch[0]==item||this.props.onMatch[1]==item)?'queue-item match':'queue-item'}
+					style={{height:value}}
+					key={'queue'+item}
+				></li>
+			)
 		});
 		return (
 			<ul className="queueArr">
