@@ -21,6 +21,8 @@ header #newgamebtn{
 	background-color: #8f7a66;
 	color: #fff;
 	border-radius: 10px;
+
+	user-select:none;
 }
 header #newgamebtn:hover {
 	background-color: #9f8b77;
