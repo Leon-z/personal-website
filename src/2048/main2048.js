@@ -99,27 +99,31 @@ function generateOneNumber() {
 	return true;
 }
 $(document).keydown(function (event) {
-	event.preventDefault()
+	
 	switch(event.keyCode){
 		case 37://left
+			event.preventDefault()
 			if(moveLeft()){
 				generateOneNumber();
 				isGameOver();
 			}
 			break;
 		case 38://up
+			event.preventDefault()
 			if(moveUp()){
 				generateOneNumber();
 				isGameOver();
 			}
 			break;
 		case 39://right
+			event.preventDefault()
 			if(moveRight()){
 				generateOneNumber();
 				isGameOver();
 			}
 			break;
 		case 40://down
+			event.preventDefault()
 			if(moveDown()){
 				generateOneNumber();
 				isGameOver();
@@ -139,13 +143,13 @@ function moveLeft() {
 		for (var j=1;j<4;j++){
 			if(board[i][j]!=0){
 				for(var k=0;k<j;k++){
-					if(board[i][k]==0&&support.noBlockHorizontal(i,k,j,board)){
+					if(board[i][k]==0&&support.noBlockLHorizontal(i,k,j,board)){
 						//move
 						animation.showMoveAnimation(i,j,i,k);
 						board[i][k]=board[i][j];
 						board[i][j]=0;
 						continue
-					}else if(board[i][k]==board[i][j]&&support.noBlockHorizontal(i,k,j,board)){
+					}else if(board[i][k]==board[i][j]&&support.noBlockLHorizontal(i,k,j,board)){
 						//move
 						animation.showMoveAnimation(i,j,i,k);
 						
@@ -183,7 +187,7 @@ function moveUp() {
 						
 						//add
 						board[k][i]+=board[j][i];
-						board[i][j]=0;
+						board[j][i]=0;
 						continue
 					}
 				}
@@ -200,16 +204,16 @@ function moveRight() {
 		return false 
 	}
 	for (var i=0;i<4;i++){
-		for (var j=0;j<3;j++){
+		for (var j=2;j>=0;j--){
 			if(board[i][j]!=0){
-				for(var k=0;k<j;k++){
-					if(board[i][k]==0&&support.noBlockHorizontal(i,k,j,board)){
+				for(var k=3;k>j;k--){
+					if(board[i][k]==0&&support.noBlockRHorizontal(i,k,j,board)){
 						//move
 						animation.showMoveAnimation(i,j,i,k);
 						board[i][k]=board[i][j];
 						board[i][j]=0;
 						continue
-					}else if(board[i][k]==board[i][j]&&support.noBlockHorizontal(i,k,j,board)){
+					}else if(board[i][k]==board[i][j]&&support.noBlockRHorizontal(i,k,j,board)){
 						//move
 						animation.showMoveAnimation(i,j,i,k);
 						
@@ -225,7 +229,47 @@ function moveRight() {
 	setTimeout(updateBoardView,200)
 	return true
 }
+//下移
+function moveDown() {
+
+	if(! support.canMoveDown(board)){
+		return false 
+	}
+	for (var i=2;i>=0;i--){
+		for (var j=0;j<4;j++){
+			if(board[i][j]!=0){
+				for(var k=3;k>i;k--){
+					if(board[k][j]==0&&support.noBlockVertical(j,i,k,board)){
+						//move
+						animation.showMoveAnimation(i,j,k,j);
+						board[k][j]=board[i][j];
+						board[i][j]=0;
+						continue
+					}else if(board[k][j]==board[i][j]&&support.noBlockVertical(j,i,k,board)){
+						//move
+						animation.showMoveAnimation(i,j,k,j);
+						
+						//add
+						board[k][j]+=board[i][j];
+						board[i][j]=0;
+						continue
+					}
+				}
+			}
+		}
+	}
+	setTimeout(updateBoardView,200)
+	return true
+}
+
 //判断是否游戏结束
 function isGameOver() {
+	if( support.nospace(board) && support.noMove(board) ){
+		gameOver()
+	}
 	
+}
+
+function gameOver() {
+	console.log('游戏结束')
 }

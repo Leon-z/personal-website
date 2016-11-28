@@ -84,6 +84,17 @@ var support = {
         }
         return true;
     },
+    //是否还可以移动？
+    noMove(board){
+        if( this.canMoveLeft(board) ||
+            this.canMoveRight(board) ||
+            this.canMoveUp(board) ||
+            this.canMoveDown(board)){
+
+            return false
+        }
+        return true
+    },
     //判断可否向左移动
     canMoveLeft(board) {
 
@@ -133,7 +144,7 @@ var support = {
 
         for (var i = 0; i < 3; i++) {
 
-            for (var j = 1; j < 4; j++) { //最左边一列无法再往左，所以从第二列开始（j从1开始）
+            for (var j = 0; j < 4; j++) { 
                 if (board[i][j] != 0) {
                     if (board[i + 1][j] == 0 || board[i + 1][j] == board[i][j]) {
                         return true
@@ -144,9 +155,22 @@ var support = {
         return false
     },
     //判断水平两点之间是否可移动
-    noBlockHorizontal(row, col1, col2, board) {
+    noBlockLHorizontal(row, col1, col2, board) {
+
         for (var i = col1 + 1; i < col2; i++) {
             if (board[row][i] != 0) {
+
+                return false
+            }
+        }
+        return true
+    },
+    //判断水平两点之间是否可移动
+    noBlockRHorizontal(row, col1, col2, board) {
+
+        for (var i = col1 - 1; i > col2; i--) {
+            if (board[row][i] != 0) {
+
                 return false
             }
         }

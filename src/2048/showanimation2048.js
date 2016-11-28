@@ -12,7 +12,7 @@ var animation = {
         	height:'100px',
         	top:support.getPosTop(i, j),
         	left:support.getPosLeft(i, j)
-        },100)
+        },200)
     },
     showMoveAnimation:function (fromx,fromy,tox,toy) {
     	var numberCell= $(`#number-cell-${fromx}-${fromy}`);
