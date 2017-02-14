@@ -13,6 +13,7 @@ class Header extends React.Component {
     componentDidMount() {
         //加载完毕后页面绑定滚动事件
         document.addEventListener('scroll', this.handleScroll);
+        console.log('10'>'2')
     }
     render() {
         const {status} =this.state;
@@ -37,7 +38,7 @@ class Header extends React.Component {
                         className="nav-item"
                         onClick={this.handleClick}
                     >Blog</a>
-                    <Link to='portfolio' activeClassName='active' className="nav-item">Portfolio</Link>
+                    <Link to='/' activeClassName='active' className="nav-item">Portfolio</Link>
                     <Link to='about' activeClassName='active' className="nav-item">About</Link>
                 </nav>
 
@@ -51,7 +52,7 @@ class Header extends React.Component {
     handleScroll(){
         let newScrollTop=(document.body.scrollTop||document.documentElement.scrollTop);
         let oldScrollTop=this.state.scrollTop;
-        if(newScrollTop===0){
+        if(newScrollTop<=10){
             this.setState({
                 status:'top'
              });
