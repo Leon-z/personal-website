@@ -1,0 +1,41 @@
+.c-about{
+    width: 220px;
+    hr{
+        margin: 20px 0;
+        border:1px solid #eee;
+    }
+    .about-title{
+        margin: 10px 0;
+        font-weight:bold;
+        a{
+            color: grey;
+            font-size: 14px;
+        }
+    }
+    .about-photo{
+        margin-bottom: 20px;
+        img{
+            width: 178px;
+            height: 178px;
+            border-radius: 5px;
+            box-shadow:0 0 7px 1px #858E91;
+        }
+
+    }
+    .about-introduction{
+        width: 178px;
+        color: #bfbfbf;
+        margin-bottom: 20px;
+    }
+    .c-sociallink{
+        .icon{
+            width: 37px;
+            height: 37px;
+            border-radius: 37px;
+
+            line-height: 37px;
+            font-size: 22px;
+            margin-right: 5px;
+        }
+    }
+}

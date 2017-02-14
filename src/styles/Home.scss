@@ -1,2 +1,17 @@
 .p-home{
+    .c-banner{
+        margin-bottom: 20px;
+    }
+    .home-container{
+        width: 1000px;
+        margin: 0 auto;
+        .home-article {
+            float: left;
+            margin-right: 30px;
+        }
+        .home-aside{
+            float: right;
+        }
+    }
+
 }

@@ -1,2 +1,18 @@
+@import "variables";
 .g-app{
+}
+
+//选择状态的文字样式
+
+::selection {
+    background: $main-hover-color;
+    color: #fff;
+}
+::-moz-selection {
+    background: $main-hover-color;
+    color: #fff;
+}
+::-webkit-selection {
+    background: $main-hover-color;
+    color: #fff;
 }
