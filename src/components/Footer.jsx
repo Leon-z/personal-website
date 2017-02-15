@@ -15,7 +15,7 @@ class Footer extends React.Component {
                 <p className="footer-copyright">
                     Copyright &copy;2017
                     <br/>
-                    Theme by Hux | Code with reactjs & nodejs
+                    Code with react & node
                 </p>
             </footer>
         )

@@ -26,11 +26,6 @@ function getDataFromMd(md) {
     let dateValue = data.substring(obj.date.index + 5, obj.tags.index);
     let tagsValue = data.substring(obj.tags.index + 5).trim().split('\n').map((value) => value.trim().replace('- ', ''));
     document.write(data);
-    console.log(obj);
-    console.log(titleValue);
-    console.log(new Date(dateValue));
-    console.log(tagsValue);
-
 }
 //目前使用的日期格式如 ：February 9, 2017
 function formatTime(data) {
@@ -41,7 +36,6 @@ function formatTime(data) {
 //格式化URL  目前示例http://leon-z.me/blog/2017/02/07/博客加入阅读次数统计和访问人数统计啦/
 function formatURL(fileName, time) {
     let date=new Date(time);
-    console.log(date);
     let urlTime=`${date.getFullYear()}/${saveNum(date.getMonth()+1)}/${saveNum(date.getDate())}`;
     return `http://leon-z.me/blog/${urlTime}/${fileName}/`
 }
