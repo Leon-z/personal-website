@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown'
 
+import marked from 'marked';
 const introduction =require('../source/introduction.md');
 
 
@@ -15,8 +16,9 @@ class Introduction extends React.Component {
     }
 
     render() {
+        console.log(introduction);
         return (
-            <ReactMarkdown className='markdown-body' source={introduction}/>
+            <ReactMarkdown className='markdown-body' source={marked(introduction)}/>
         )
     }
 }

@@ -1,31 +1,15 @@
 
-> 实现两列布局，其中左边定宽100px，右边自适应
-
-- 方案1:[float+margi](http://note.youdao.com/)n
-
-```css
-/* 左边 左浮动，右边添加一个大于等于左边元素宽的左外边距 */
-.left{
-    float:left;
-    width:100px;
-}
-.right{
-    margin-left:120px;
-}
+##### 字符串拼接方法 concat()
+```javascript
+let oldStr='abc';
+let newStr=oldStr.concat('aaa','ccc');
+console.log(oldStr);//abc
+console.log(newStr)//abcaaaccc
 ```
+`concat`方法拼接字符串，通过例子验证其三个特点
+* 生成新字符串
+* 对原字符串无影响
+* 可传入多个参数
 ```
-不足：IE6下会有3像素bug，右边盒子有3像素边距。
-另外如果自适应的盒子内有元素设置了`clear:both`清除了浮动，那么`右边盒子会在上边多出一段等于左边盒子高度的内边距`
-```
-- 方案2:float+overflow
-
-```css
-/* float+overflow触发BFC模式BFC里面内容和外部元素是隔离的 */
-.left{
-    float:left;
-    width:100px;
-}
-.right{
-    overflow:hidden;
-}
+如果想改变原字符串进行拼接 直接使用'+'操作符即可
 ```

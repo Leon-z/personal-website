@@ -26,10 +26,6 @@ function getDataFromMd(md) {
     let dateValue = data.substring(obj.date.index + 5, obj.tags.index);
     let tagsValue = data.substring(obj.tags.index + 5).trim().split('\n').map((value) => value.trim().replace('- ', ''));
     document.write(data);
-<<<<<<< HEAD
-
-=======
->>>>>>> f6e1be9e15bf714dc38d2faf82fdd79ce3b78d56
 }
 //目前使用的日期格式如 ：February 9, 2017
 function formatTime(data) {
