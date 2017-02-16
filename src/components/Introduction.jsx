@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown'
-
-import marked from 'marked';
-const introduction =require('../source/introduction.md');
+import ReactMarkdown from 'react-markdown';
 
 
 import 'styles/Introduction.scss';
@@ -16,9 +13,8 @@ class Introduction extends React.Component {
     }
 
     render() {
-        console.log(introduction);
         return (
-            <ReactMarkdown className='markdown-body' source={marked(introduction)}/>
+            <ReactMarkdown className='markdown-body' source={require('../source/introduction.md')}/>
         )
     }
 }

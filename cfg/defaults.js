@@ -36,9 +36,6 @@ function getDefaultModules() {
                 test: /\.sass/,
                 loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax'
             }, {
-                test: /\.md$/,
-                loader: "html!markdown-it"
-            }, {
                 test: /\.json$/,
                 loader: "json-loader"
             },

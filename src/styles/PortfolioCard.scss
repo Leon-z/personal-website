@@ -4,7 +4,11 @@
     border-radius: 4px;
     border: 1px solid #edeeee;
     background-color: #fff;
-    transition:all 0.3s ease-in;
+
+    transition: box-shadow  0.3s ease;
+    //3d
+    transform-style: preserve-3d;
+
     //header
     .portfolio-card-header{
         padding: 14px 20px;
@@ -13,6 +17,8 @@
         line-height: 36px;
         font-weight: bold;
         font-size: 15px;
+        transform: translateZ(20px);
+        pointer-events  : none;
         .portfolio-card-time{
             float: right;
             font-size: 13px;
@@ -32,6 +38,7 @@
         height: 340px;
         background-size:cover;
 
+        pointer-events  : none;
         @at-root
         .portfolio-card-article{
 
@@ -48,7 +55,6 @@
             transition: all 0.3s ease-in-out;
             text-align: center;
             color: #ffffff;
-
             .portfolio-card-detials{
                 width: 300px;
                 font-size: 14px;
@@ -56,6 +62,9 @@
 
                 opacity:0;
                 transition: all 0.3s ease-in;
+
+                //3d
+                transform: translateZ(130px);
             }
             .portfolio-card-view{
                 width: 40px;
@@ -71,6 +80,9 @@
                 cursor: pointer;
 
                 opacity:0;
+
+                //3d
+                transform: translateZ(110px);
                 &:hover{
                     background-color: #fff;
                     color: $main-color;
@@ -85,6 +97,8 @@
         height: 40px;
         line-height: 40px;
         color: #a5a7aa;
+
+        pointer-events  : none;
         .tags-item{
             display: inline-block;
             height: 20px;
@@ -94,6 +108,8 @@
             font-size: 12px;
             padding: 2px 5px;
             margin-right: 8px;
+
+            transform: translateZ(20px);
         }
     }
     //hover

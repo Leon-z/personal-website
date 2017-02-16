@@ -1,15 +1,9 @@
+ 最近看到一段代码实现`'www.baidu.com'`=>`'com/baidu/wwww'`的转换，原代码非常麻烦。因为react经常要对数据进行操作拼接，所以顺手就把它实现出来了。代码如下:
 
-##### 字符串拼接方法 concat()
-```javascript
-let oldStr='abc';
-let newStr=oldStr.concat('aaa','ccc');
-console.log(oldStr);//abc
-console.log(newStr)//abcaaaccc
-```
-`concat`方法拼接字符串，通过例子验证其三个特点
-* 生成新字符串
-* 对原字符串无影响
-* 可传入多个参数
-```
-如果想改变原字符串进行拼接 直接使用'+'操作符即可
-```
+ ```javascript
+let str='www.baidu.com';
+let result=str.split('.').reverse().join('/');//com/baidu/www
+ ```
+借此提醒自己，知识是要熟记，但更要灵活运用。不要字符串就只想到字符串方法。
+
+贴一波之前学习字符串记的笔记，继续加油。
