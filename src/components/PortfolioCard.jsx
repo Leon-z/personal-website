@@ -47,14 +47,13 @@ class PortfolioCard extends React.Component {
     }
 
     handleMove(e){
-        console.log('原生',e.offsetY);
         let w=this.card.clientWidth,
             h=this.card.clientHeight,
             x=e.offsetX,
             y=e.offsetY,
             ratio=h/w,
-            ry=(x/w)*60-30,
-            rx=30*ratio-(y/h)*60*ratio;
+            ry=(x/w)*36*ratio-18*ratio,
+            rx=18*ratio-(y/h)*36*ratio;
         this.setState({
             mouse:[rx,ry]
         })
