@@ -9,6 +9,7 @@
     //3d
     transform-style: preserve-3d;
 
+
     //header
     .portfolio-card-header{
         padding: 14px 20px;
@@ -37,7 +38,6 @@
         width: 598px;
         height: 340px;
         background-size:cover;
-
         pointer-events  : none;
         @at-root
         .portfolio-card-article{
@@ -55,6 +55,7 @@
             transition: all 0.3s ease-in-out;
             text-align: center;
             color: #ffffff;
+            //project介绍
             .portfolio-card-detials{
                 width: 300px;
                 font-size: 14px;
@@ -62,10 +63,11 @@
 
                 opacity:0;
                 transition: all 0.3s ease-in;
-
+                text-align: justify;
                 //3d
                 transform: translateZ(130px);
             }
+            //project进入按钮
             .portfolio-card-view{
                 width: 40px;
                 height: 20px;
@@ -92,6 +94,7 @@
     }
     //footer
     .portfolio-card-footer{
+        transform: translateZ(20px);
         padding: 0 20px;
         height: 40px;
         line-height: 40px;

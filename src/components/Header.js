@@ -13,7 +13,6 @@ class Header extends React.Component {
     componentDidMount() {
         //加载完毕后页面绑定滚动事件
         document.addEventListener('scroll', this.handleScroll);
-        console.log('10'>'2')
     }
     render() {
         const {status} =this.state;
@@ -30,7 +29,7 @@ class Header extends React.Component {
         }
         return (
             <header className={headerStyle}>
-                <div className="header-logo">Leon</div>
+                <Link to='portfolio' className="header-logo">Leon</Link>
                 <nav className="header-nav">
                     <IndexLink to='/' activeClassName='active' className="nav-item">Home</IndexLink>
                     <a
@@ -38,7 +37,7 @@ class Header extends React.Component {
                         className="nav-item"
                         onClick={this.handleClick}
                     >Blog</a>
-                    <Link to='/' activeClassName='active' className="nav-item">Portfolio</Link>
+                    <Link to='portfolio' activeClassName='active' className="nav-item">Portfolio</Link>
                     <Link to='about' activeClassName='active' className="nav-item">About</Link>
                 </nav>
 

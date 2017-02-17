@@ -18,9 +18,9 @@ class Home extends React.Component {
         return (
             <div className="p-home" style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../images/banner_home.jpg')}
+                    imgURL={require('../images/banner_home.png')}
                     title="Leon"
-                    detail="叮叮当当，敲敲键盘"
+                    detail="没有比思考更复杂的享受了"
                 />
                 <div className="home-container clearfix">
                     <article className="home-article">

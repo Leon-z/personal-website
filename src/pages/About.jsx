@@ -9,10 +9,11 @@ class About extends React.Component {
         //this.handleChange = this.handleChange.bind(this);
     }
     render() {
+        let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度
         return (
-            <div className="p-about ">
+            <div className="p-about " style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../images/banner_home.jpg')}
+                    imgURL={require('../images/banner_home.png')}
                     title="About"
                     detail="Hi,this is Leon"
                 />

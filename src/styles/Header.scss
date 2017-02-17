@@ -4,6 +4,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10000;
     height: 60px;
     transition: all 0.3s ease-in-out;
     user-select: none;
@@ -31,12 +32,16 @@
     &.top{
         color: #ffffff;
         .header-logo{
+            color: #ffffff;
             &:hover{
                 color: rgba(255,255,255,0.8);
             }
         }
         .nav-item{
             color: #ffffff;
+            &.active{
+                color:rgba(255,255,255,0.8);
+            }
             &:hover{
                 color:rgba(255,255,255,0.8);
             }
@@ -47,12 +52,16 @@
         background-color: rgba(255,255,255,0.9);
         color: $main-color;
         .header-logo{
+            color: $main-color;
             &:hover{
                 color: $main-hover-color;
             }
         }
         .nav-item{
             color: $main-color;
+            &.active{
+                color:$main-hover-color;
+            }
             &:hover{
                 color:$main-hover-color;
             }
