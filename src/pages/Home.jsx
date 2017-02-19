@@ -25,9 +25,10 @@ class Home extends React.Component {
                 <div className="home-container clearfix">
                     <article className="home-article">
                         {/* 首页博客列表 */}
-                        {data.sort((a,b)=>new Date(a.date)<new Date(b.date)).map((value)=>{
+                        {data.sort((a,b)=>new Date(a.date)<new Date(b.date)).map((value,index)=>{
                             let time=formatTime(value.date);
                             return <BlogShortItem
+                                index={index}
                                 key={time}
                                 title={value.title}
                                 introduction={value.value}

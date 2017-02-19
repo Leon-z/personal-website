@@ -5,7 +5,9 @@
     width: 750px;
     margin-bottom: 20px;
     border-bottom: 1px solid #eee;
-
+    opacity:0;
+    transform: translateX(-5%);
+    animation:blog-item-fade-in 0.6s ease-in forwards ;
     a {
         &:hover {
             .blog-title {
@@ -31,7 +33,6 @@
             color: $main-hover-color;
         }
     }
-
     .blog-info {
         margin-bottom: 30px;
         font-size: 18px;
@@ -39,5 +40,17 @@
         font-style: italic;
         color: rgb(128,128,128);
         font-family: Lora,'Times New Roman',serif;
+    }
+}
+@keyframes blog-item-fade-in {
+    0%{
+        opacity:0;
+        transform: translateX(-5%);
+    }
+    30%{
+    }
+    100%{
+        opacity:1;
+        transform: translateX(0);
     }
 }

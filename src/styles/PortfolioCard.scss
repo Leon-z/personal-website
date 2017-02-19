@@ -5,11 +5,13 @@
     border: 1px solid #edeeee;
     background-color: #fff;
 
-    transition: box-shadow  0.3s ease;
+    transition: all  0.4s ease-out;
     //3d
     transform-style: preserve-3d;
 
-
+    &.animating{
+        transition: transform  0s;
+    }
     //header
     .portfolio-card-header{
         padding: 14px 20px;
@@ -84,6 +86,8 @@
                 opacity:0;
                 //3d
                 transform: translateZ(110px);
+                //取消鼠标事件禁止
+                pointer-events  : auto;
                 &:hover{
                     background-color: #fff;
                     color: $main-color;

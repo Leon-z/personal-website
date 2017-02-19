@@ -8,25 +8,7 @@
  * @param {string} md 转成字符串的markdown文件
  * @return {object} 读取markdown生成的标识文件
  */
-//中断任务，目前先放一个装饰文件装饰着= =
-function getDataFromMd(md) {
-    let data = md.slice(3, md.indexOf('---', 3));
-    let obj = {
-        title: {
-            index: data.indexOf('title')
-        },
-        date: {
-            index: data.indexOf('date')
-        },
-        tags: {
-            index: data.indexOf('tags')
-        }
-    };
-    let titleValue = data.substring(obj.title.index + 6, obj.date.index);
-    let dateValue = data.substring(obj.date.index + 5, obj.tags.index);
-    let tagsValue = data.substring(obj.tags.index + 5).trim().split('\n').map((value) => value.trim().replace('- ', ''));
-    document.write(data);
-}
+
 //目前使用的日期格式如 ：February 9, 2017
 function formatTime(data) {
     const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -43,4 +25,4 @@ function formatURL(fileName, time) {
 function saveNum(num) {
     return num<10?'0'+num:num
 }
-export { getDataFromMd, formatTime, formatURL };
+export {  formatTime, formatURL };

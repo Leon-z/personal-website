@@ -7,9 +7,9 @@ class BlogShortItem extends React.Component {
     }
 
     render() {
-        const {title,introduction,time,url}=this.props;
+        const {index,title,introduction,time,url}=this.props;
         return (
-            <section className="c-blogShort">
+            <section className="c-blogShort" style={{animationDelay:`${0.1*index}s`}}>
                 <a href={url} >
                     <h5 className="blog-title">{title}</h5>
                     <p className="blog-slice">{introduction}</p>
