@@ -29,7 +29,7 @@ class Header extends React.Component {
         }
         return (
             <header className={headerStyle}>
-                <Link to='portfolio' className="header-logo">Leon</Link>
+                <Link to='/' className="header-logo">Leon</Link>
                 <nav className="header-nav">
                     <IndexLink to='/' activeClassName='active' className="nav-item">Home</IndexLink>
                     <a
