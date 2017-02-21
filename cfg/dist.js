@@ -8,9 +8,11 @@ let defaultSettings = require('./defaults');
 
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
-
 let config = Object.assign({}, baseConfig, {
-  entry: path.join(__dirname, '../src/index'),
+  entry: {
+      app:path.join(__dirname, '../src/index'),
+      vendor:['react','react-dom']
+  },
   cache: false,
   devtool: 'sourcemap',
   plugins: [
@@ -21,10 +23,19 @@ let config = Object.assign({}, baseConfig, {
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false
+        },
+        mangle: {
+            except: ['$super', '$', 'exports', 'require']
+        },
+        sourceMap:false
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.CommonsChunkPlugin('vendor',  'vendor.js')
   ],
   module: defaultSettings.getDefaultModules()
 });
