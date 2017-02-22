@@ -14,6 +14,9 @@ class Banner extends React.Component {
                     <h1 className="content-title">{title}</h1>
                     <p className="content-detail">{detail}</p>
                 </div>
+                {this.props.children}
+
+
             </div>
         )
     }

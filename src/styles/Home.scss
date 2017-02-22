@@ -1,6 +1,15 @@
 .p-home{
     .c-banner{
+        position: relative;
         margin-bottom: 20px;
+        @at-root
+        .particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 417px;
+        }
     }
     .home-container{
         width: 1000px;
