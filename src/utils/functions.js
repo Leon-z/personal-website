@@ -25,4 +25,8 @@ function formatURL(fileName, time) {
 function saveNum(num) {
     return num<10?'0'+num:num
 }
-export {  formatTime, formatURL };
+//格式化出我想要的markdown格式
+function formatMarkdown(md) {
+    return md
+}
+export {  formatTime, formatURL ,formatMarkdown};
