@@ -23,7 +23,7 @@ let me ={
 
 - [ ] 《图解HTTP》
 
-- [ ] 《你不知道对Javascript》上
+- [√] 《你不知道对Javascript》上
 
 - [ ] 《你不知道对Javascript》中
 

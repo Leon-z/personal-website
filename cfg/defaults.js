@@ -30,7 +30,7 @@ function getDefaultModules() {
             },
             {
                 test: /\.md$/,
-                loader: 'html-loader'
+                loader: 'html-loader!markdown-loader'
             },
             {
                 test: /\.sass/,

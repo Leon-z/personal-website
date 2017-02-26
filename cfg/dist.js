@@ -2,17 +2,13 @@
 
 let path = require('path');
 let webpack = require('webpack');
-
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 let config = Object.assign({}, baseConfig, {
-  entry: {
-      app:path.join(__dirname, '../src/index'),
-      vendor:['react','react-dom' ]
-  },
+  entry: path.join(__dirname, '../src/index'),
   cache: false,
   devtool: 'sourcemap',
   plugins: [
@@ -34,8 +30,7 @@ let config = Object.assign({}, baseConfig, {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.optimize.CommonsChunkPlugin('vendor',  'vendor.js')
+    new webpack.NoErrorsPlugin()
   ],
   module: defaultSettings.getDefaultModules()
 });

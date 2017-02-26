@@ -14,15 +14,13 @@ let config = Object.assign({}, baseConfig, {
             'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
             'webpack/hot/only-dev-server',
             './src/index'
-        ],
-        vendor:['react']
+        ]
     },
     cache: true,
     devtool: 'eval-source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.optimize.CommonsChunkPlugin('vendor',  'vendor.js'),
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
         })
