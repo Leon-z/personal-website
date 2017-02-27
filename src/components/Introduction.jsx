@@ -3,43 +3,35 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import marked from 'marked';
-import Highlight from 'highlight.js'
+import Highlight from 'highlight.js';
 
 import 'styles/Introduction.scss';
 import 'styles/markdown.scss';
+const markdownString = require('../source/introduction.md');// 自我介绍
 
 class Introduction extends React.Component {
     constructor(props) {
         super(props);
         //this.handleChange = this.handleChange.bind(this);
-    }
-componentWillMount(){
-    var marked = require('marked');
-
-    var markdownString = require('../source/introduction.md');
-
-
-
-// Using async version of marked
-    marked(markdownString, function (err, content) {
-        if (err) throw err;
-        console.log(content);
-    });
-
-// Synchronous highlighting with highlight.js
-    marked.setOptions({
-        highlight: function (code) {
-            return require('highlight.js').highlightAuto(code).value;
+        this.state={
+            source:'# 自我介绍'
         }
-    });
+    }
 
-    this.setState({
-        data:marked(markdownString)
-    })
-}
+    componentWillMount() {
+        marked.setOptions({
+            highlight: function (code) {
+                return Highlight.highlightAuto(code).value;
+            }
+        });
+        this.setState({
+            source: marked(markdownString)
+        })
+    }
+
     render() {
         return (
-            <ReactMarkdown className='markdown-body' source={this.state.data}/>
+            <ReactMarkdown className='markdown-body' source={this.state.source}/>
         )
     }
 }

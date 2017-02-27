@@ -30,7 +30,7 @@ function getDefaultModules() {
             },
             {
                 test: /\.md$/,
-                loader: 'html-loader'
+                loader: 'html?minimize=false'
             },
             {
                 test: /\.sass/,

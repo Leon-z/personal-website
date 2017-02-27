@@ -1,11 +1,11 @@
 > 伸手摘星辰
 
 ```javascript
-let me ={
+var me ={
     name:'林周',
-    title：'前端工程师',
-    email:'lz_n10828@163.com'
-    hobbies:['游泳','狼人杀','阅读','发呆','旅游']
+    title:'前端工程师',
+    email:'lz_n10828@163.com',
+    hobby:['游泳','狼人杀','阅读','发呆','旅游']
 }
 ```
 初级前端一枚，16年初参加FEDay听了Stepan，黄士旗分享react使用经历犹如醍醐灌顶，交互，切图之外前端原来还可以那么cool，开始投入前端工程化的解决方案的研究中，MVVM，面对对象（组件）编程。先用react+react-router搭建的博客。后端计划是用node+mongodb，现在在学着node (｡・`ω´･)。加油加油
