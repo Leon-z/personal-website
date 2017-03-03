@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/PortfolioCard.scss';
+import './PortfolioCard.scss';
 class PortfolioCard extends React.Component {
     constructor(props) {
         super(props);

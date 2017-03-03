@@ -1,6 +1,6 @@
 import React from 'react';
-import SocialLink from './SocialLink';
-import 'styles/Footer.scss';
+import SocialLink from '../SocialLink/SocialLink';
+import './Footer.scss';
 class Footer extends React.Component {
     constructor(props) {
         super(props);

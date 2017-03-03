@@ -1,6 +1,6 @@
 import React from 'react';
-import PortfolioCard from '../components/PortfolioCard';
-import Introduction from '../components/Introduction';
+import PortfolioCard from '../components/PortfolioCard/PortfolioCard';
+import Introduction from '../components/Introduction/Introduction';
 import 'styles/Test.scss';
 
 class Test extends React.Component {

@@ -1,4 +1,4 @@
-import 'styles/SocialLink.scss';
+import './SocialLink.scss';
 import React from 'react';
 const SocialLink = ( ) =>
     <div className="c-sociallink">

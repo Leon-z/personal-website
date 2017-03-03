@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/BlogShortItem.scss';
+import './BlogShortItem.scss';
 class BlogShortItem extends React.Component {
     constructor(props) {
         super(props);

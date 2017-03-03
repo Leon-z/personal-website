@@ -5,9 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import marked from 'marked';
 import Highlight from 'highlight.js';
 
-import 'styles/Introduction.scss';
+import './Introduction.scss';
 import 'styles/markdown.scss';
-const markdownString = require('../source/introduction.md');// 自我介绍
+const markdownString = require('../../source/introduction.md');// 自我介绍
 
 class Introduction extends React.Component {
     constructor(props) {

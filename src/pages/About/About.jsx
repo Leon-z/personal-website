@@ -1,8 +1,8 @@
 import React from 'react';
-import Banner from '../components/Banner';
-import Introduction from '../components/Introduction';
-import AboutMeCard from '../components/AboutMeCard';
-import 'styles/About.scss';
+import Banner from '../../components/Banner/Banner';
+import Introduction from '../../components/Introduction/Introduction';
+import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
+import './About.scss';
 class About extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +15,7 @@ class About extends React.Component {
         return (
             <div className="p-about " style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../images/banner_home.png')}
+                    imgURL={require('../../images/banner_home.png')}
                     title="About"
                     detail="Hi,this is Leon"
                 />

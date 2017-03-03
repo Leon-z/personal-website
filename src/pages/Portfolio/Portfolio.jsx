@@ -1,10 +1,10 @@
 import React from 'react';
-import Banner from '../components/Banner';
-import PortfolioCard from '../components/PortfolioCard';
+import Banner from '../../components/Banner/Banner';
+import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 
-import 'styles/Portfolio.scss';
+import './Portfolio.scss';
 
-import portfolioData from '../source/portfolioData';
+import portfolioData from '../../source/portfolioData';
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +15,7 @@ class Portfolio extends React.Component {
         return (
             <div className="p-portfolio " style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../images/banner_home.png')}
+                    imgURL={require('../../images/banner_home.png')}
                     title="Portfolio"
                     detail="there are some projects "
                 />

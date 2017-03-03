@@ -1,5 +1,5 @@
 import React from 'react';
-import 'styles/Banner.scss';
+import './Banner.scss';
 class Banner extends React.Component {
     constructor(props) {
         super(props);

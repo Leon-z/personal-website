@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, IndexLink} from 'react-router';
-import 'styles/Header.scss';
+import './Header.scss';
 class Header extends React.Component {
     constructor(props) {
         super(props);

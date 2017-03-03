@@ -1,12 +1,12 @@
 import React from 'react';
-import Banner from '../components/Banner';
-import AboutMeCard from '../components/AboutMeCard';
-import BlogShortItem from '../components/BlogShortItem';
-import {formatTime,formatURL} from '../utils/functions';
-import 'styles/Home.scss';
+import Banner from '../../components/Banner/Banner';
+import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
+import BlogShortItem from '../../components/BlogShortItem/BlogShortItem';
+import {formatTime,formatURL} from '../../utils/functions';
+import './Home.scss';
 
 import 'particles.js';
-import data from '../source/mockData';//用脚本爬来hexo上博客的数据
+import data from '../../source/mockData';//用脚本爬来hexo上博客的数据
 
 class Home extends React.Component {
     constructor(props) {
@@ -130,7 +130,7 @@ class Home extends React.Component {
         return (
             <div className="p-home" style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../images/banner_home.png')}
+                    imgURL={require('../../images/banner_home.png')}
                     title="Leon"
                     detail="没有比思考更复杂的享受了"
                 >
