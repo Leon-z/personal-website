@@ -1,0 +1,23 @@
+.img-preview--small {
+    -webkit-filter: blur(6px);
+    -moz-filter: blur(6px);
+    -ms-filter: blur(6px);
+    filter: blur(6px);
+}
+.img-preview--original{
+    animation:willClear 0.5s ease-out forwards ;
+}
+@keyframes willClear {
+   0%{
+       -webkit-filter: blur(6px);
+       -moz-filter: blur(6px);
+       -ms-filter: blur(6px);
+       filter: blur(6px);
+   }
+    100%{
+        -webkit-filter: blur(0);
+        -moz-filter: blur(0);
+        -ms-filter: blur(0);
+        filter: blur(0);
+    }
+}
