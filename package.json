@@ -19,7 +19,9 @@
     "release:patch": "npm version patch && npm publish && git push --follow-tags"
   },
   "repository": "git@github.com:Leon-z/personal-website.git",
-  "keywords": ["blog"],
+  "keywords": [
+    "blog"
+  ],
   "author": "Leon",
   "devDependencies": {
     "autoprefixer": "^6.4.1",
@@ -40,6 +42,7 @@
     "eslint-plugin-react": "^6.0.0",
     "file-loader": "^0.9.0",
     "glob": "^7.0.0",
+    "html-webpack-plugin": "^2.29.0",
     "isparta-instrumenter-loader": "^1.0.0",
     "karma": "^1.0.0",
     "karma-chai": "^0.1.0",

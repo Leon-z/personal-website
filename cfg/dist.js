@@ -4,7 +4,7 @@ let path = require('path');
 let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
-
+let HtmlWebpackPlugin =  require('html-webpack-plugin')
 // Add needed plugins here
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 let config = Object.assign({}, baseConfig, {
@@ -30,7 +30,10 @@ let config = Object.assign({}, baseConfig, {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({
+          template: './src/index.html'
+    })
   ],
   module: defaultSettings.getDefaultModules()
 });
