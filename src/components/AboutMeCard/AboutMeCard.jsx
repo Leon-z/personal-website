@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router';
+
 import SocialLink from '../SocialLink/SocialLink';
+
 import './AboutMeCard.scss';
 import photo from '../../images/phtoto.jpg'
+
+
 class AboutMeCard extends React.Component {
     constructor(props) {
         super(props);
