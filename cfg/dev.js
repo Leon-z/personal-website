@@ -4,9 +4,10 @@ let path = require('path');
 let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
+let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 // Add needed plugins here
-let BowerWebpackPlugin = require('bower-webpack-plugin');
+
 
 let config = Object.assign({}, baseConfig, {
     entry: {
@@ -23,6 +24,10 @@ let config = Object.assign({}, baseConfig, {
         new webpack.NoErrorsPlugin(),
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: 'body' // Inject all scripts into the body
         })
     ],
     module: defaultSettings.getDefaultModules()

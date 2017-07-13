@@ -17,8 +17,8 @@ module.exports = {
   debug: true,
   devtool: 'eval',
   output: {
-    path: path.join(__dirname, '/../dist/assets'),
-    filename: 'app.js',
+    path: path.join(__dirname, '/../dist'),
+    filename: 'js/[name].[chunkhash:8].js',
     publicPath: defaultSettings.publicPath
   },
   devServer: {
