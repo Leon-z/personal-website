@@ -20,7 +20,6 @@ let config = Object.assign({}, baseConfig, {
         publicPath: defaultSettings.publicPath
     },
     cache: false,
-    devtool: 'cheap-module-eval-source-maps',
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.DefinePlugin({
@@ -42,14 +41,7 @@ let config = Object.assign({}, baseConfig, {
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-
-            // filename: "vendor.js"
-            // (Give the chunk a different name)
-            async: true,
-            minChunks: Infinity,
-            // (with more entries, this ensures that no other module
-            //  goes into the vendor chunk)
+            names: ['vendor', 'manifest']
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
