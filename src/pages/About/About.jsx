@@ -11,8 +11,6 @@ class About extends React.Component {
         super(props);
         //this.handleChange = this.handleChange.bind(this);
     }
-    componentDidMount(){
-    }
     render() {
         let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度
         return (
