@@ -1,15 +1,14 @@
 import React from 'react';
-
 import Banner from '../../components/Banner/Banner';
 import Introduction from '../../components/Introduction/Introduction';
 import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
-
 import './About.scss';
-
 class About extends React.Component {
     constructor(props) {
         super(props);
         //this.handleChange = this.handleChange.bind(this);
+    }
+    componentDidMount(){
     }
     render() {
         let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度

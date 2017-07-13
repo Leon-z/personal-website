@@ -13,6 +13,7 @@ let config = Object.assign({}, baseConfig, {
         main: path.join(__dirname, '../src/index'),
         vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
     },
+    // entry: path.join(__dirname, '../src/index'),
     output: {
         path: path.join(__dirname, '/../dist'),
         filename: 'js/[name].[chunkhash:8].js',
@@ -28,6 +29,9 @@ let config = Object.assign({}, baseConfig, {
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'manifest']
+        }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -40,6 +44,7 @@ let config = Object.assign({}, baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoErrorsPlugin(),
+
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
