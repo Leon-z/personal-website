@@ -18,9 +18,9 @@
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags"
   },
-  "repository": "",
-  "keywords": [],
-  "author": "Your name here",
+  "repository": "git@github.com:Leon-z/personal-website.git",
+  "keywords": ["blog"],
+  "author": "Leon",
   "devDependencies": {
     "autoprefixer": "^6.4.1",
     "babel-core": "^6.0.0",

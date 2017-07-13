@@ -32,3 +32,5 @@ node_modules/*
 .gitignore
 .vscode/*
 ._.DE_Store
+.idea/*
+ecosystem.config.js
