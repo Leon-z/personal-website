@@ -41,9 +41,7 @@ let config = Object.assign({}, baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoErrorsPlugin(),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     names: ['vendor', 'manifest']
-        // }),
+        new webpack.optimize.CommonsChunkPlugin({names: ['vendor','runtime']}),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
