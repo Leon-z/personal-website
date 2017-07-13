@@ -4,6 +4,7 @@ let path = require('path');
 let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 // Add needed plugins here
@@ -19,6 +20,12 @@ let config = Object.assign({}, baseConfig, {
     },
     cache: true,
     devtool: 'eval-source-map',
+    output: {
+        path: path.join(__dirname, '/../dist'),
+        filename: '[name].js',
+        chunkFilename: '[name].chunk.js',
+        publicPath: defaultSettings.publicPath
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),

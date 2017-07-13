@@ -9,43 +9,39 @@ let superscript = require('markdown-it-sup');
 // let npmBase = path.join(__dirname, '../node_modules');
 // let additionalPaths = [ path.join(npmBase, 'react-bootstrap') ];
 let additionalPaths = [];
-var precss       = require('precss');
+var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 module.exports = {
-  additionalPaths: additionalPaths,
-  port: defaultSettings.port,
-  debug: true,
-  devtool: 'eval',
-  output: {
-    path: path.join(__dirname, '/../dist'),
-    filename: 'js/[name].[chunkhash:8].js',
-    publicPath: defaultSettings.publicPath
-  },
-  devServer: {
-    contentBase: './src/',
-    historyApiFallback: true,
-    hot: true,
+    additionalPaths: additionalPaths,
     port: defaultSettings.port,
-    publicPath: defaultSettings.publicPath,
-    noInfo: false
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      actions: `${defaultSettings.srcPath}/actions/`,
-      components: `${defaultSettings.srcPath}/components/`,
-      sources: `${defaultSettings.srcPath}/sources/`,
-      stores: `${defaultSettings.srcPath}/stores/`,
-      styles: `${defaultSettings.srcPath}/styles/`,
-      config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
+    debug: true,
+    devtool: 'eval',
+
+    devServer: {
+        contentBase: './src/',
+        historyApiFallback: true,
+        hot: true,
+        port: defaultSettings.port,
+        publicPath: defaultSettings.publicPath,
+        noInfo: false
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx'],
+        alias: {
+            actions: `${defaultSettings.srcPath}/actions/`,
+            components: `${defaultSettings.srcPath}/components/`,
+            sources: `${defaultSettings.srcPath}/sources/`,
+            stores: `${defaultSettings.srcPath}/stores/`,
+            styles: `${defaultSettings.srcPath}/styles/`,
+            config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
+        }
+    },
+    module: {},
+    postcss: function () {
+        return [precss, autoprefixer];
+    }, 'markdown-it': {
+        preset: 'default',
+        typographer: true,
+        use: [subscript, superscript]
     }
-  },
-  module: {},
-  postcss: function () {
-      return [precss, autoprefixer];
-  },'markdown-it':{
-    preset: 'default',
-    typographer: true,
-    use: [subscript, superscript]
-  }
 };

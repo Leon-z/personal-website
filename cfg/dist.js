@@ -9,7 +9,16 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 // Add needed plugins here
 
 let config = Object.assign({}, baseConfig, {
-    entry: path.join(__dirname, '../src/index'),
+    entry: {
+        main: path.join(__dirname, '../src/index'),
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
+    },
+    output: {
+        path: path.join(__dirname, '/../dist'),
+        filename: 'js/[name].[chunkhash:8].js',
+        chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
+        publicPath: defaultSettings.publicPath
+    },
     cache: false,
     devtool: 'sourcemap',
     plugins: [
