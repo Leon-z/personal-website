@@ -20,7 +20,7 @@ let config = Object.assign({}, baseConfig, {
         publicPath: defaultSettings.publicPath
     },
     cache: false,
-    devtool: 'sourcemap',
+    devtool: 'cheap-module-eval-source-maps',
     plugins: [
         new webpack.optimize.DedupePlugin(),
         new webpack.DefinePlugin({
