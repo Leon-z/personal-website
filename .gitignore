@@ -33,4 +33,6 @@ node_modules/*
 .vscode/*
 ._.DE_Store
 .idea/*
+# dist on server
+.dist/*
 ecosystem.config.js
