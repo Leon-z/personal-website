@@ -11,7 +11,7 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 let config = Object.assign({}, baseConfig, {
     entry: {
         main: path.join(__dirname, '../src/index'),
-        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
+        // vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
     },
     // entry: path.join(__dirname, '../src/index'),
     output: {
@@ -20,15 +20,22 @@ let config = Object.assign({}, baseConfig, {
         chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
         publicPath: defaultSettings.publicPath
     },
-    devtool: 'eval-source-map',
     cache: false,
     plugins: [
-        new webpack.optimize.DedupePlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"production"'
         }),
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            filename: 'js/[name].[chunkhash:8].chunk.js'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
+            minChunks: Infinity,
+            filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
@@ -44,18 +51,8 @@ let config = Object.assign({}, baseConfig, {
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            inject: 'body',// Inject all scripts into the body
-        }),
-
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            filename: 'js/[name].[chunkhash:8].chunk.js'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "manifest",
-            minChunks: Infinity,
-            filename: 'js/[name].[chunkhash:8].chunk.js'
-        }),
+            inject: 'body' // Inject all scripts into the body
+        })
     ],
     module: defaultSettings.getDefaultModules()
 });
