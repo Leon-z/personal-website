@@ -29,15 +29,6 @@ let config = Object.assign({}, baseConfig, {
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            filename: 'js/[name].[chunkhash:8].chunk.js'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "manifest",
-            minChunks: Infinity,
-            filename: 'js/[name].[chunkhash:8].chunk.js'
-        }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -52,8 +43,19 @@ let config = Object.assign({}, baseConfig, {
         new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            inject: 'body' // Inject all scripts into the body
-        })
+            inject: 'body',// Inject all scripts into the body
+            chunks:['index','common.js']   // 这个模板对应上面那个节点
+        }),
+
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            filename: 'js/[name].[chunkhash:8].chunk.js'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
+            minChunks: Infinity,
+            filename: 'js/[name].[chunkhash:8].chunk.js'
+        }),
     ],
     module: defaultSettings.getDefaultModules()
 });
