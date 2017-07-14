@@ -30,7 +30,12 @@ let config = Object.assign({}, baseConfig, {
             searchResolveModulesDirectories: false
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendor','runtime'],
+            name: "vendor",
+            filename: 'js/[name].[chunkhash:8].chunk.js'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "manifest",
+            minChunks: Infinity,
             filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -45,7 +50,6 @@ let config = Object.assign({}, baseConfig, {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.NoErrorsPlugin(),
-
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
