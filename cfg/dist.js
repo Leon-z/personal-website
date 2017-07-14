@@ -20,6 +20,7 @@ let config = Object.assign({}, baseConfig, {
         chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
         publicPath: defaultSettings.publicPath
     },
+    devtool: 'eval-source-map',
     cache: false,
     plugins: [
         new webpack.optimize.DedupePlugin(),
@@ -44,7 +45,6 @@ let config = Object.assign({}, baseConfig, {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body',// Inject all scripts into the body
-            chunks:['index','common.js']   // 这个模板对应上面那个节点
         }),
 
         new webpack.optimize.CommonsChunkPlugin({
