@@ -30,9 +30,8 @@ let config = Object.assign({}, baseConfig, {
             searchResolveModulesDirectories: false
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['vendor'],
-            minChunks: Infinity,
-            filename: 'js/vendor.[chunkhash:8].chunk.js'
+            name: ['vendor','runtime'],
+            filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
