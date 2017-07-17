@@ -22,7 +22,9 @@ let config = Object.assign({}, baseConfig, {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': 'production'//定义生产环境
+            'process.env': {
+                NODE_ENV: JSON.stringify('production') //定义生产环境
+            }
         }),
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
