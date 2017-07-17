@@ -12,7 +12,7 @@ var CompressionWebpackPlugin = require('compression-webpack-plugin');//gzip åŽ‹ç
 let config = Object.assign({}, baseConfig, {
     entry: {
         main: path.join(__dirname, '../src/index'),
-        vendor: ['react', 'react-dom', 'redux', 'react-redux']
+        vendor: ['react', 'react-dom', 'react-router']
     },
     // entry: path.join(__dirname, '../src/index'),
     output: {
