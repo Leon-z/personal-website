@@ -11,7 +11,7 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 let config = Object.assign({}, baseConfig, {
     entry: {
         main: path.join(__dirname, '../src/index'),
-        vendor: []
+        vendor: ['react']
     },
     // entry: path.join(__dirname, '../src/index'),
     output: {
