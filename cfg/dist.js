@@ -10,8 +10,8 @@ let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = Object.assign({}, baseConfig, {
     entry: {
-        main: path.join(__dirname, '../src/index'),
-        vendor: ['react','react-dom']
+        main: './src/index.js',
+        vendor: ['react', 'react-dom', 'redux', 'react-redux', 'react-router']
     },
     // entry: path.join(__dirname, '../src/index'),
     output: {
@@ -20,13 +20,21 @@ let config = Object.assign({}, baseConfig, {
         chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
         publicPath: defaultSettings.publicPath
     },
-    cache: false,
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"'
+            'process.env.NODE_ENV': 'production'//定义生产环境
         }),
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            mangle: false
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
@@ -37,18 +45,9 @@ let config = Object.assign({}, baseConfig, {
             minChunks: Infinity,
             filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            mangle: {
-                except: ['$super', '$', 'exports', 'require']
-            },
-            sourceMap: false
-        }),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.AggressiveMergingPlugin(),
-        new webpack.NoErrorsPlugin(),
+        // new webpack.optimize.OccurenceOrderPlugin(),
+        // new webpack.optimize.AggressiveMergingPlugin(),
+        // new webpack.NoErrorsPlugin(),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
