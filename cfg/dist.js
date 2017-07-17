@@ -6,13 +6,12 @@ let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 let BowerWebpackPlugin = require('bower-webpack-plugin');
-var CompressionWebpackPlugin = require('compression-webpack-plugin');//gzip 压缩
 // Add needed plugins here
 
 let config = Object.assign({}, baseConfig, {
     entry: {
         main: path.join(__dirname, '../src/index'),
-        vendor: ['react', 'react-dom']
+        vendor: ['react','react-dom']
     },
     // entry: path.join(__dirname, '../src/index'),
     output: {
@@ -37,15 +36,6 @@ let config = Object.assign({}, baseConfig, {
             name: "manifest",
             minChunks: Infinity,
             filename: 'js/[name].[chunkhash:8].chunk.js'
-        }),
-        new CompressionWebpackPlugin({ //gzip 压缩
-            asset: '[path].gz[query]',
-            algorithm: 'gzip',
-            test: new RegExp(
-                '\\.(js|css)$'    //压缩 js 与 css
-            ),
-            threshold: 10240,
-            minRatio: 0.8
         }),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
