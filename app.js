@@ -35,13 +35,15 @@ app.use((req, res, next) => {
 			User.findById(req.userInfo._id)
 				.then((userInfo) => {
 					req.userInfo.isAdmin = Boolean(userInfo.isAdmin);
+					next();
 				});
-			next()
 		} catch (e) {
-			next()
+			next();
 		}
+	}else{
+		next();
 	}
-	next();
+
 });
 
 app.use('/admin', require('./routes/admin'));

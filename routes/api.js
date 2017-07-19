@@ -129,4 +129,5 @@ router.get('/user/logout',(req,res)=>{
 	req.cookies.set('userInfo',null);
 	res.json(responseData);
 });
+
 module.exports = router;
