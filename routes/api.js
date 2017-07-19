@@ -77,6 +77,10 @@ router.post('/user/register', (req, res, next) => {
 		})
 		.then((new_user_info) => {
 			responseData.message = '注册成功';
+			req.cookies.set('userInfo',JSON.stringify({
+				_id:new_user_info._id,
+				user_name:new_user_info.user_name,
+			}));
 			return res.json(responseData);
 		});
 
@@ -113,8 +117,16 @@ router.post('/user/login', (req, res, next) => {
 					_id:user_info._id,
 					user_name:user_info.user_name,
 				};
+				req.cookies.set('userInfo',JSON.stringify({
+					_id:user_info._id,
+					user_name:user_info.user_name,
+				}));
 				res.json(responseData);
 			}
 		})
+});
+router.get('/user/logout',(req,res)=>{
+	req.cookies.set('userInfo',null);
+	res.json(responseData);
 });
 module.exports = router;
