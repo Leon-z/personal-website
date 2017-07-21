@@ -1,0 +1,133 @@
+@import "../../styles/variables";
+.c-portfolio-card{
+    width: 598px;
+    border-radius: 4px;
+    border: 1px solid #edeeee;
+    background-color: #fff;
+
+    transition: all  0.4s ease-out;
+    //3d
+    transform-style: preserve-3d;
+
+    &.animating{
+        transition: transform  0s;
+    }
+    //header
+    .portfolio-card-header{
+        padding: 14px 20px;
+        margin: 0;
+        height: 36px;
+        line-height: 36px;
+        font-weight: bold;
+        font-size: 15px;
+        transform: translateZ(20px);
+        pointer-events  : none;
+        .portfolio-card-time{
+            float: right;
+            font-size: 13px;
+            color: #a5a7aa;
+            font-weight:normal;
+        }
+    }
+    //body
+    .portfolio-card-body{
+        //flex 实现垂直水平居中，后期注意照顾一下兼容性
+        display: flex;
+        justify-content:center;
+        align-items:center;
+
+
+        width: 598px;
+        height: 340px;
+        background-size:cover;
+        pointer-events  : none;
+        @at-root
+        .portfolio-card-article{
+
+            display: flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+
+            width: 80%;
+            padding: 0 80px;
+            height: 300px;
+            box-sizing: border-box;//这样边框加粗的动画不会影响到盒子总宽
+
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            color: #ffffff;
+            //project介绍
+            .portfolio-card-detials{
+                width: 300px;
+                font-size: 14px;
+                line-height: 1.8;
+
+                opacity:0;
+                transition: all 0.3s ease-in;
+                text-align: justify;
+                //3d
+                transform: translateZ(130px);
+            }
+            //project进入按钮
+            .portfolio-card-view{
+                width: 40px;
+                height: 20px;
+                margin-top: 30px;
+                padding: 5px 10px;
+                border: 1px solid #fff;
+
+                line-height: 20px;
+                border-radius: 2px;
+                transition: all 0.3s ease-in;
+                user-select: none;
+                cursor: pointer;
+
+                opacity:0;
+                //3d
+                transform: translateZ(110px);
+                //取消鼠标事件禁止
+                pointer-events  : auto;
+                &:hover{
+                    background-color: #fff;
+                    color: $main-color;
+                }
+            }
+
+        }
+    }
+    //footer
+    .portfolio-card-footer{
+        transform: translateZ(20px);
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px;
+        color: #a5a7aa;
+
+        pointer-events  : none;
+        .tags-item{
+            display: inline-block;
+            height: 20px;
+            border-radius: 4px;
+            border:1px solid #eee;
+            line-height: 20px;
+            font-size: 12px;
+            padding: 2px 5px;
+            margin-right: 8px;
+
+            transform: translateZ(20px);
+        }
+    }
+    //hover
+    &:hover{
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        .portfolio-card-article{
+            background-color: rgba(0,133,161,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 10px solid $main-hover-color;
+        }
+        .portfolio-card-detials,.portfolio-card-view{
+            opacity:1;
+        }
+    }
+}

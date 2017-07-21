@@ -1,0 +1,30 @@
+.p-about{
+    .c-banner{
+        margin-bottom: 20px;
+    }
+    .about-container{
+         width: 1000px;
+         margin: 0 auto;
+
+         .about-article {
+
+             float: left;
+             margin-right: 30px;
+
+             animation: about-fade-in 0.8s ease-in ;
+         }
+         .about-aside{
+             float: right;
+         }
+     }
+}
+@keyframes about-fade-in {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

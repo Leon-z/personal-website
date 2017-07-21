@@ -1,0 +1,34 @@
+.p-home{
+    .c-banner{
+        position: relative;
+        margin-bottom: 20px;
+        @at-root
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 417px;
+        }
+    }
+    .home-container{
+        width: 1000px;
+        margin: 0 auto;
+        .home-article {
+            float: left;
+            margin-right: 30px;
+        }
+        .home-aside{
+            animation: home-aside-fade-in 0.8s ease-in ;
+            float: right;
+        }
+    }
+}
+@keyframes home-aside-fade-in {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
