@@ -32,15 +32,6 @@ let config = Object.assign({}, baseConfig, {
         new BowerWebpackPlugin({
             searchResolveModulesDirectories: false
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            filename: 'js/[name].[hash:8].chunk.js'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "manifest",
-            minChunks: Infinity,
-            filename: 'js/[name].[hash:8].chunk.js'
-        }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
