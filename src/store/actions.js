@@ -1,7 +1,7 @@
 /**
  * Created by linzhou on 2017/7/22.
  */
-// import * as User from '../pages/User/UserActions';
+import * as Home from '../pages/Home/HomeActions';
 export default {
-    // ...User,
+    ...Home,
 };

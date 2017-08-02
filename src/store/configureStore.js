@@ -6,9 +6,8 @@ import asyncActionCallbackMiddleware from './asyncActionCallbackMiddleware';
 import syncReducerToAsyncStorage from './syncReducerToAsyncStorage';
 import reducers from './reducers';
 
-// const __DEV__ = process.env.NODE_ENV === 'development';
-const __DEV__ = true;
-console.log(process.env.NODE_ENV)
+const __DEV__ = process.env.NODE_ENV === 'development';
+// const __DEV__ = true;
 
 const logger = createLogger({
     predicate: (getState, action) => __DEV__,

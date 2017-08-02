@@ -2,11 +2,14 @@
  * Created by linzhou on 2017/7/23.
  */
 import React from 'react';
+
 import Banner from '../../components/Banner/Banner';
-import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
+// import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
 import BlogShortItem from '../../components/BlogShortItem/BlogShortItem';
 import {formatTime,formatURL} from '../../utils/functions';
-import data from '../../source/mockData';//用脚本爬来hexo上博客的数据
+
+import data from '../../source/mockData';
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +45,7 @@ class Home extends React.Component {
                         })}
                     </article>
                     <aside className="home-aside">
-                        <AboutMeCard/>
+                        {/*<AboutMeCard/>*/}
                     </aside>
                 </div>
             </div>

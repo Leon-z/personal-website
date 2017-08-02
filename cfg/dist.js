@@ -5,7 +5,6 @@ let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-let BowerWebpackPlugin = require('bower-webpack-plugin');
 const {UglifyJsPlugin} = webpack.optimize; // 压缩js
 const {CommonsChunkPlugin} = webpack.optimize; // 压缩js
 const CompressionWebpackPlugin = require('compression-webpack-plugin');//gzip 压缩
@@ -29,9 +28,6 @@ let config = Object.assign({}, baseConfig, {
                 NODE_ENV: JSON.stringify('production') //定义生产环境
             }
         }),
-        new BowerWebpackPlugin({
-            searchResolveModulesDirectories: false
-        }),
         new CommonsChunkPlugin({
             name: "vendor",
             filename: 'js/[name].[chunkhash:8].chunk.js'
@@ -42,12 +38,10 @@ let config = Object.assign({}, baseConfig, {
             filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
         new UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
             output: {
                 comments: false
             },
+            minimize:true,
             mangle: false
         }),
         new CompressionWebpackPlugin({ //gzip 压缩
@@ -68,13 +62,13 @@ let config = Object.assign({}, baseConfig, {
 });
 
 // Add needed loaders to the defaults here
-config.module.loaders.push({
-    test: /\.(js|jsx)$/,
-    loader: 'babel',
-    include: [].concat(
-        config.additionalPaths,
-        [path.join(__dirname, '/../src')]
-    )
-});
+// config.module.loaders.push({
+//     test: /\.(js|jsx)$/,
+//     loader: 'babel',
+//     include: [].concat(
+//         config.additionalPaths,
+//         [path.join(__dirname, '/../src')]
+//     )
+// });
 
 module.exports = config;

@@ -3,7 +3,7 @@ import * as qs from './querystring';
 import storageService from './storage';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
-
+console.warn(__DEV__)
 var token = storageService.get('access_token') || null;
 function setToken(token) {
     token = token;
@@ -106,7 +106,7 @@ export function fetchWithToken(url, options = {}) {
                 console.info(`fetch Body: `, options.body)
             }
             let fetchOptions = {
-                credentials: 'include',
+                credentials: 'include',//cookie
                 method: type,
                 headers: {
                     'Accept': 'application/json',

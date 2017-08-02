@@ -1,5 +1,6 @@
 @import "../../styles/variables";
-.c-header{
+
+.root {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,69 +9,84 @@
     height: 60px;
     transition: all 0.3s ease-in-out;
     user-select: none;
-    .header-logo{
-        float: left;
-        padding:0 30px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 20px;
-        font-weight: 800;
-    }
-    .header-nav{
-        float: right;
-        .nav-item{
-            display: inline-block;
-            padding:0 20px;
-            height: 60px;
-            font-weight: 800;
-            font-size: 15px;
-            line-height: 60px;
+}
+.logo{
+    float: left;
+    padding:0 30px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: 800;
+}
+.top {
+    composes: root;
+    color: #ffffff;
+}
 
-        }
-    }
-    //top状态
-    &.top{
-        color: #ffffff;
-        .header-logo{
-            color: #ffffff;
-            &:hover{
-                color: rgba(255,255,255,0.8);
-            }
-        }
-        .nav-item{
-            transition: all 0.2s ease-in-out;
-            color: #ffffff;
-            &.active{
-                transform: translateY(-8px);
-                color:rgba(255,255,255,0.8);
-            }
-            &:hover{
-                transform: translateY(-8px);
-                color:rgba(255,255,255,0.8);
-            }
-        }
-    }
-    //up状态
-    &.up {
-        background-color: rgba(255,255,255,0.9);
-        color: $main-color;
-        .header-logo{
-            color: $main-color;
-            &:hover{
-                color: $main-hover-color;
-            }
-        }
-        .nav-item{
-            color: $main-color;
-            &.active{
-                color:$main-hover-color;
-            }
-            &:hover{
-                color:$main-hover-color;
-            }
-        }
-    }
-    &.down {
-        transform: translate(0,-60px);
+.up {
+    composes: root;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: $main-color;
+}
+
+.down {
+    composes: root;
+    transform: translate(0, -60px);
+}
+
+.nav {
+    float: right;
+}
+
+.nav-item{
+    display: inline-block;
+    padding: 0 20px;
+    height: 60px;
+    font-weight: 800;
+    font-size: 15px;
+    line-height: 60px;
+}
+.top-logo{
+    composes:logo;
+    color: #ffffff;
+    &:hover{
+        color: rgba(255,255,255,0.8);
     }
 }
+.up-logo{
+    composes:logo;
+    color: $main-color;
+    &:hover{
+        color: $main-hover-color;
+    }
+}
+
+.nav-item--top{
+    composes:nav-item;
+
+    transition: all 0.2s ease-in-out;
+    color: #ffffff;
+    &.active{
+        transform: translateY(-8px);
+        color:rgba(255,255,255,0.8);
+    }
+    &:hover{
+        transform: translateY(-8px);
+        color:rgba(255,255,255,0.8);
+    }
+}
+
+.nav-item--up{
+    composes:nav-item;
+
+    color: $main-color;
+
+    &.active{
+        color:$main-hover-color;
+    }
+    &:hover{
+        color:$main-hover-color;
+    }
+}
+
+

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-// import User from '../pages/User/UserReducer';
+import Home from '../pages/Home/HomeReducer';
 
 
 export default combineReducers({ //把几个reducer合成一个reducer。
-    // User,
+    Home,
 });

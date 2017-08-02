@@ -1,11 +1,14 @@
 import 'core-js/fn/object/assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import routes from './router';
+import {Provider} from 'react-redux';
+
+import configureStore from './store/configureStore';
+import Router from './router';
+const store = configureStore();
 
 ReactDOM.render((
-    <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
-        {routes}
-    </Router>
+    <Provider store={store}>
+        <Router />
+    </Provider>
 ), document.getElementById('app'));

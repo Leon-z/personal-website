@@ -16,44 +16,72 @@ const dfltPort = 8080;
  */
 function getDefaultModules() {
     return {
-        preLoaders: [
-
-        ],
-        loaders: [
+        rules: [
             {
+                test: /\.(js|jsx)$/,
+                use: ['babel-loader'],
+                include: [].concat(
+                    [path.join(__dirname, '/../src')]
+                )
+            }, {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader!postcss-loader'
-            },
-            {
-                test: /\.md$/,
-                loader: 'html?minimize=false'
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]--[hash:base64:5]'
+                        }
+                    },
+                    'postcss-loader'
+                ]
             },
             {
                 test: /\.sass/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax'
-            }, {
-                test: /\.json$/,
-                loader: "json-loader"
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]--[hash:base64:5]'
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.scss/,
-                loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]--[hash:base64:5]'
+                        }
+                    },
+                    'postcss-loader',
+                    'sass-loader'
+                ]
             },
             {
                 test: /\.less/,
-                loader: 'style-loader!css-loader!less-loader'
+                use: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
             },
             {
                 test: /\.styl/,
-                loader: 'style-loader!css-loader!stylus-loader'
+                use: ['style-loader', 'css-loader', 'stylus-loader']
             },
             {
                 test: /\.(png|jpg|gif|woff|woff2|svg|eot|ttf)$/,
-                loader: 'url-loader?limit=8192'
+                use: ['url-loader']
             },
             {
                 test: /\.(mp4|ogg|svg)$/,
-                loader: 'file-loader'
+                use: ['file-loader']
             }
         ]
     };

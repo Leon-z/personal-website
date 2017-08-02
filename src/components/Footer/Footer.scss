@@ -6,16 +6,17 @@
     url('../../styles/font/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
     url('../../styles/font/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
 }
-.c-footer{
+.root{
     text-align: center;
     color: #777777;
-    .c-sociallink{
-        margin-bottom: 30px;
-        .icon{
-            margin: 0 10px;
-        }
-    }
-    .footer-copyright{
-        line-height: 1.7;
+
+}
+.copyright{
+    line-height: 1.7;
+}
+[data-role="social-link"] {
+    margin-bottom: 30px;
+    a {
+        margin: 0 10px;
     }
 }

@@ -1,6 +1,9 @@
 import React from 'react';
-import {Link, IndexLink} from 'react-router';
-import './Header.scss';
+import { NavLink} from 'react-router-dom';
+import classnames from 'classnames';
+
+import style from './Header.scss';
+
 class Header extends React.Component {
     constructor(props) {
         super(props);
@@ -16,31 +19,30 @@ class Header extends React.Component {
     }
     render() {
         const {status} =this.state;
-        let headerStyle = 'c-header clearfix';
-        //根据不同状态给顶部加上不同类名
-        switch (status) {
-            case 'top':headerStyle+=' top';
-                break;
-            case 'up':headerStyle+=' up';
-                break;
-            case 'down':headerStyle+=' down';
-                break;
-            default :break;
-        }
-        return (
-            <header className={headerStyle}>
-                <Link to='/' className="header-logo">Leon</Link>
-                <nav className="header-nav">
-                    <IndexLink to='/' activeClassName='active' className="nav-item">Home</IndexLink>
-                    <a
-                        href="javascript:"
-                        className="nav-item"
-                        onClick={this.handleClick}
-                    >Blog</a>
-                    <Link to='portfolio' activeClassName='active' className="nav-item">Portfolio</Link>
-                    <Link to='about' activeClassName='active' className="nav-item">About</Link>
-                </nav>
 
+        const rootCls=classnames({
+            'top':status==='top',
+            'up':status==='up',
+            'down':status==='down',
+        });
+        const logoCls=classnames({
+            'top-logo':status==='top',
+            'up-logo':status==='up',
+            'logo':status==='down',
+        });
+        const navItemCls=classnames({
+            'nav-item--top':status==='top',
+            'nav-item--up':status==='up',
+            'nav-item':status==='down',
+        });
+        return (
+            <header className={style[rootCls]}>
+                <NavLink to='/' exact className={style[logoCls]}>Leon</NavLink>
+                <nav className={style.nav}>
+                    <NavLink to='/' exact activeClassName={style.active} className={style[navItemCls]}>Home</NavLink>
+                    <NavLink to='/portfolio' activeClassName={style.active} className={style[navItemCls]}>Portfolio</NavLink>
+                    <NavLink to='/about' activeClassName={style.active} className={style[navItemCls]}>About</NavLink>
+                </nav>
             </header>
         )
     }
@@ -66,11 +68,6 @@ class Header extends React.Component {
                 status:'down'
             })
         }
-    }
-
-    //目前 react 做博客系统 还需要后台。node在学，先用hexo顶上
-    handleClick(){
-        window.location='http://leon-z.me/blog';
     }
 }
 export default Header;

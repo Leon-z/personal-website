@@ -1,13 +1,12 @@
+/**
+ * Created by linzhou on 2017/7/23.
+ */
 import React from 'react';
 import Banner from '../../components/Banner/Banner';
 import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
 import BlogShortItem from '../../components/BlogShortItem/BlogShortItem';
 import {formatTime,formatURL} from '../../utils/functions';
-
-import './Home.scss';
-
 import data from '../../source/mockData';//用脚本爬来hexo上博客的数据
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -25,7 +24,7 @@ class Home extends React.Component {
                     title="Leon"
                     detail="没有比思考更复杂的享受"
                 >
-                    <div id="particles-js"></div>
+                    <div id="particles-js"/>
                 </Banner>
                 <div className="home-container clearfix">
                     <article className="home-article">
@@ -50,4 +49,10 @@ class Home extends React.Component {
         )
     }
 }
-export default Home;
+export const LayoutComponent = Home;
+export function mapStateToProps(state) {
+    return {
+
+    }
+}
+

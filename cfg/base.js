@@ -1,22 +1,15 @@
 'use strict';
 let path = require('path');
 let defaultSettings = require('./defaults');
-let subscript = require('markdown-it-sub');
-let superscript = require('markdown-it-sup');
 // Additional npm or bower modules to include in builds
 // Add all foreign plugins you may need into this array
 // @example:
 // let npmBase = path.join(__dirname, '../node_modules');
 // let additionalPaths = [ path.join(npmBase, 'react-bootstrap') ];
-let additionalPaths = [];
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 module.exports = {
-    additionalPaths: additionalPaths,
-    port: defaultSettings.port,
-    debug: true,
     devtool: 'eval',
-
     devServer: {
         contentBase: './src/',
         historyApiFallback: true,
@@ -26,22 +19,14 @@ module.exports = {
         noInfo: false
     },
     resolve: {
-        extensions: ['', '.js', '.jsx'],
-        alias: {
-            actions: `${defaultSettings.srcPath}/actions/`,
-            components: `${defaultSettings.srcPath}/components/`,
-            sources: `${defaultSettings.srcPath}/sources/`,
-            stores: `${defaultSettings.srcPath}/stores/`,
-            styles: `${defaultSettings.srcPath}/styles/`,
-            config: `${defaultSettings.srcPath}/config/` + process.env.REACT_WEBPACK_ENV
+        extensions: ['.js', '.jsx'],
+        modules: [
+            path.join(__dirname, "src"),
+            "node_modules"
+        ],
+        alias:{
+            utils: path.resolve(__dirname, '../src/utils/'),
+            Styles: path.resolve(__dirname, '../src/styles/')
         }
     },
-    module: {},
-    postcss: function () {
-        return [precss, autoprefixer];
-    }, 'markdown-it': {
-        preset: 'default',
-        typographer: true,
-        use: [subscript, superscript]
-    }
 };

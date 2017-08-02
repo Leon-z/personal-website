@@ -1,4 +1,4 @@
-import {isFSA, createAction} from 'flux-standard-action';
+import {isFSA} from 'flux-standard-action';
 import storageService from '../utils/storage';
 
 const types = {

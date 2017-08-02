@@ -1,23 +1,34 @@
+/**
+ * Created by linzhou on 2017/8/1.
+ */
 import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import './App.scss';
-//引入reset
+
+import  'Styles/reset.scss';
 import 'normalize.css/normalize.css';
-import 'styles/reset.scss'
+import styles from './index.scss';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
-        //this.handleChange = this.handleChange.bind(this);
     }
     render() {
+
         return (
-            <div className="g-app">
+            <div className={styles.root}>
                 <Header />
                 {this.props.children}
                 <Footer/>
             </div>
-        )
+
+        );
     }
 }
-export default App;
+
+export const LayoutComponent = App;
+export function mapStateToProps(state) {
+    return {
+        ...state
+    }
+}

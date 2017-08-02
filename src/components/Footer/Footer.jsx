@@ -1,6 +1,6 @@
 import React from 'react';
 import SocialLink from '../SocialLink/SocialLink';
-import './Footer.scss';
+import style from './Footer.scss';
 class Footer extends React.Component {
     constructor(props) {
         super(props);
@@ -10,9 +10,9 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <footer className="c-footer">
+            <footer className={style.root}>
                 <SocialLink/>
-                <p className="footer-copyright">
+                <p className={style.copyright}>
                     Copyright &copy;2017
                     <br/>
                     Code with react & node
