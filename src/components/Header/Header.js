@@ -40,6 +40,7 @@ class Header extends React.Component {
                 <NavLink to='/' exact className={style[logoCls]}>Leon</NavLink>
                 <nav className={style.nav}>
                     <NavLink to='/' exact activeClassName={style.active} className={style[navItemCls]}>Home</NavLink>
+                    <NavLink to='/archive' exact activeClassName={style.active} className={style[navItemCls]}>Archive</NavLink>
                     <NavLink to='/portfolio' activeClassName={style.active} className={style[navItemCls]}>Portfolio</NavLink>
                     <NavLink to='/about' activeClassName={style.active} className={style[navItemCls]}>About</NavLink>
                 </nav>

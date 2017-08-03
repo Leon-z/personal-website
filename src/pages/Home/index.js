@@ -4,8 +4,8 @@
 import React from 'react';
 
 import Banner from '../../components/Banner/Banner';
+import ArticleCard from '../../components/ArticleCard';
 // import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
-import BlogShortItem from '../../components/BlogShortItem/BlogShortItem';
 import {formatTime,formatURL} from '../../utils/functions';
 
 import data from '../../source/mockData';
@@ -14,11 +14,29 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         //this.handleChange = this.handleChange.bind(this);
+        this.state={
+            articles:[]
+        }
     }
     componentDidMount(){
-
+        const {homeGetArticlesList} = this.props.actions;
+        homeGetArticlesList({
+            params:{
+                page_size:10,
+                page_number:0
+            },
+            resolved:res=>{
+                if(res){
+                    this.setState({
+                        articles  : res.obj
+                    })
+                }
+            },
+            rejected:res=>console.log(res),
+        })
     }
     render() {
+        const {articles}= this.state;
         let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度
         return (
             <div className="p-home" style={{minHeight: mixHeight}}>
@@ -27,23 +45,19 @@ class Home extends React.Component {
                     title="Leon"
                     detail="没有比思考更复杂的享受"
                 >
-                    <div id="particles-js"/>
                 </Banner>
                 <div className="home-container clearfix">
-                    <article className="home-article">
-                        {/* 首页博客列表 */}
-                        {data.sort((a,b)=>new Date(a.date)<new Date(b.date)).map((value,index)=>{
-                            let time=formatTime(value.date);
-                            return <BlogShortItem
-                                index={index}
-                                key={time}
-                                title={value.title}
-                                introduction={value.value}
-                                time={time}
-                                url={formatURL(value.fileName,value.date)}
-                            />
-                        })}
-                    </article>
+                    {articles.map((article)=>(
+                        <ArticleCard
+                            key={article._id}
+                            banner={article.banner}
+                            categories={article.categories}
+                            description={article.description}
+                            title={article.title}
+                            create_time={article.create_time}
+                            _id={article._id}
+                        />
+                    ))}
                     <aside className="home-aside">
                         {/*<AboutMeCard/>*/}
                     </aside>
@@ -52,6 +66,7 @@ class Home extends React.Component {
         )
     }
 }
+
 export const LayoutComponent = Home;
 export function mapStateToProps(state) {
     return {

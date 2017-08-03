@@ -1,8 +1,8 @@
 import {types} from './HomeActions';
 
 let initialState = {
-    userInfo: null,
-    userList:null,
+    articles:[],
+    categories:[],
 };
 
 
@@ -11,17 +11,6 @@ export default function (state = initialState, action) {
 	const {sequence={}} = meta;
 	const pending = sequence.type === 'start';
 	switch (type) {
-		case types.USER_LOGIN:
-		    if(payload&&payload.code===0){
-                return {
-                    ...state,
-                    userInfo:payload.userInfo,
-                };
-            }
-			return {
-				...state,
-			};
-
 		default:
 			return state;
 	}

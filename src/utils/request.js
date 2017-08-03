@@ -3,7 +3,6 @@ import * as qs from './querystring';
 import storageService from './storage';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
-console.warn(__DEV__)
 var token = storageService.get('access_token') || null;
 function setToken(token) {
     token = token;

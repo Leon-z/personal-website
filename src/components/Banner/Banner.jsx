@@ -1,5 +1,5 @@
 import React from 'react';
-import './Banner.scss';
+import style from './Banner.scss';
 class Banner extends React.Component {
     constructor(props) {
         super(props);
@@ -9,14 +9,12 @@ class Banner extends React.Component {
     render() {
         const {title,detail,imgURL} =this.props;
         return (
-            <div className="c-banner" style={{backgroundImage:`url(${imgURL})`}}>
-                <div className="banner-content">
-                    <h1 className="content-title">{title}</h1>
-                    <p className="content-detail">{detail}</p>
+            <div className={style.root} style={{backgroundImage:`url(${imgURL})`}}>
+                <div className={style.content}>
+                    <h1 className={style.title}>{title}</h1>
+                    <p className={style.detail}>{detail}</p>
                 </div>
                 {this.props.children}
-
-
             </div>
         )
     }
