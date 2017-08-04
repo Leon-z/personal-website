@@ -5,11 +5,12 @@ import React from 'react';
 
 import Banner from '../../components/Banner/Banner';
 import ArticleCard from '../../components/ArticleCard';
+import Pagination from '../../components/Pagination';
 // import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
-import {formatTime,formatURL} from '../../utils/functions';
+import {parse,stringify} from '../../utils/index';
 
 import data from '../../source/mockData';
-
+import style from './index.scss';
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -19,34 +20,33 @@ class Home extends React.Component {
         }
     }
     componentDidMount(){
-        const {homeGetArticlesList} = this.props.actions;
-        homeGetArticlesList({
-            params:{
-                page_size:10,
-                page_number:0
-            },
-            resolved:res=>{
-                if(res){
-                    this.setState({
-                        articles  : res.obj
-                    })
-                }
-            },
-            rejected:res=>console.log(res),
-        })
+        const {page} = parse(this.props.location.search);
+        this.getArticleData(page-1||0)
+    }
+    componentWillReceiveProps(nextProps) {
+        const locationChanged = nextProps.location !== this.props.location;
+
+        if(locationChanged){
+            const {page} = parse(nextProps.location.search);
+            this.getArticleData(page-1||0)
+        }
     }
     render() {
         const {articles}= this.state;
+        const {
+            location:{search},
+        }= this.props;
+        const  {page} =parse(search);
         let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度
         return (
-            <div className="p-home" style={{minHeight: mixHeight}}>
+            <div className={style.root} style={{minHeight: mixHeight}}>
                 <Banner
                     imgURL={require('../../images/banner_home.png')}
                     title="Leon"
                     detail="没有比思考更复杂的享受"
                 >
                 </Banner>
-                <div className="home-container clearfix">
+                <div className={style.articles}>
                     {articles.map((article)=>(
                         <ArticleCard
                             key={article._id}
@@ -58,13 +58,56 @@ class Home extends React.Component {
                             _id={article._id}
                         />
                     ))}
-                    <aside className="home-aside">
-                        {/*<AboutMeCard/>*/}
-                    </aside>
                 </div>
+                <Pagination
+                    current={page}
+                    pageSize={10}
+                    total={11}
+                    onPreClick={this.onPreClick}
+                    onNextClick={this.onNextClick}
+                />
             </div>
         )
     }
+    onPreClick=()=>{
+        const {
+            history:{replace},
+            location:{search},
+            match:{path}
+        }= this.props;
+        let params =parse(search);
+
+        params.page--;
+        replace(path+'?'+stringify(params))
+    };
+    onNextClick=()=>{
+        const {
+            history:{push},
+            location:{search},
+            match:{path}
+        }= this.props;
+        let params =parse(search);
+
+        params.page?params.page++:params.page=2;
+        push(path+'?'+stringify(params))
+    };
+    getArticleData=(page)=>{
+        const {homeGetArticlesList} = this.props.actions;
+        homeGetArticlesList({
+            params:{
+                page_size:10,
+                page_number:page
+            },
+            resolved:res=>{
+                if(res){
+                    this.setState({
+                        articles  : res.obj
+                    })
+                }
+            },
+            rejected:res=>console.log(res),
+        })
+    };
 }
 
 export const LayoutComponent = Home;

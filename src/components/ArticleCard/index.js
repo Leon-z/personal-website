@@ -6,21 +6,24 @@ import {Link} from 'react-router-dom';
 import  moment from 'moment';
 import style from './index.scss';
 
-const ArticleCard = ({banner, categories, description, title, create_time,_id}) => (
-    <Link to={`/article/${_id}`}>
-        <article className={style.root}>
-            <div className={style.bg} style={{backgroundImage:`url(${banner})`}}/>
+const ArticleCard = ({banner, categories, description, title, create_time, _id}) => (
+
+    <article className={style.root} data-role="article-card">
+        <Link to={`/article/${_id}`}>
+            <div className={style.bg} style={{backgroundImage: `url(${banner})`}}/>
             <p className={style.info}>
-                <span>{moment(create_time).format('MM Do YYYY')}</span>
-                {categories.map((category)=>{
-                    return <Link key={category._id} to={`/category/${category.name}`} className={style.category}>{category.name}</Link>
+                <span className={style.time}>{moment(create_time).format('MM/DD/YYYY')}</span>
+                {categories.map((category) => {
+                    return <Link key={category._id} to={`/category/${category.name}`}
+                                 className={style.category}>{category.name}</Link>
                 })}
             </p>
             <h3 className={style.title}>{title}</h3>
             <p className={style.description}>{description}</p>
-            <button className={style.button}>READ MORE</button>
-        </article>
-    </Link>
+            <button className={style.button}>READ</button>
+        </Link>
+    </article>
+
 );
 
 export default ArticleCard

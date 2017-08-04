@@ -40,13 +40,14 @@ class Header extends React.Component {
                 <NavLink to='/' exact className={style[logoCls]}>Leon</NavLink>
                 <nav className={style.nav}>
                     <NavLink to='/' exact activeClassName={style.active} className={style[navItemCls]}>Home</NavLink>
-                    <NavLink to='/archive' exact activeClassName={style.active} className={style[navItemCls]}>Archive</NavLink>
+                    {/*<NavLink to='/archive' exact activeClassName={style.active} className={style[navItemCls]}>Archive</NavLink>*/}
                     <NavLink to='/portfolio' activeClassName={style.active} className={style[navItemCls]}>Portfolio</NavLink>
                     <NavLink to='/about' activeClassName={style.active} className={style[navItemCls]}>About</NavLink>
                 </nav>
             </header>
         )
     }
+    
     //监听滚动，读取滚动位置，
     // 比之前位置低说明在向下滚动，导航隐藏 并且状态为down
     // 比之前位置高说明在向上滚动，导航显示 并且状态为up

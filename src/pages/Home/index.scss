@@ -1,6 +1,12 @@
 @import "../../styles/variables";
 
 .root{
-
+    background-color: #ecebe9;
 }
-
+.articles{
+    width: 900px;
+    margin: 30px auto;
+}
+[data-role="article-card"] {
+    margin-bottom: 15px;
+}
