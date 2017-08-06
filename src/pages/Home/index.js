@@ -9,8 +9,8 @@ import Pagination from '../../components/Pagination';
 // import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
 import {parse,stringify} from '../../utils/index';
 
-import data from '../../source/mockData';
 import style from './index.scss';
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -59,13 +59,16 @@ class Home extends React.Component {
                         />
                     ))}
                 </div>
-                <Pagination
-                    current={page}
-                    pageSize={10}
-                    total={11}
-                    onPreClick={this.onPreClick}
-                    onNextClick={this.onNextClick}
-                />
+                <div className={style.pagination}>
+                    <Pagination
+                        current={page}
+                        pageSize={10}
+                        total={11}
+                        onPreClick={this.onPreClick}
+                        onNextClick={this.onNextClick}
+                    />
+                </div>
+
             </div>
         )
     }

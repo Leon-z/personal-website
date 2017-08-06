@@ -8,7 +8,10 @@ import connectComponent from '../store/connectComponent';
 import {withRouter} from 'react-router';
 import * as App from '../pages/App';
 import * as Home from '../pages/Home';
+import * as Article from '../pages/Article';
+
 const Root = withRouter(connectComponent(App));
+
 // // const Home = (location, callback) => {
 // //     require.ensure([], require => {
 // //         callback(null, connectComponent(require('../page/Home/')))
@@ -17,8 +20,8 @@ const Root = withRouter(connectComponent(App));
 const RouteConfig = () => (
     <Router>
         <Root>
-            <Route path="/" component={connectComponent(Home)}/>
-            {/*<Route path="/a" component={connectComponent(Home)}/>*/}
+            <Route exact path="/" component={connectComponent(Home)}/>
+            <Route path="/article/:id" component={connectComponent(Article)}/>
             {/*<Route path="/b" component={connectComponent(Home)}/>*/}
         </Root>
     </Router>
