@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.root{
+
+}
+.list{
+    width: 900px;
+    margin: 30px auto;
+    padding:15px;
+    list-style: none;
+    box-shadow: 0 0 8px 0 #e7e7e7;
+}
+.item{
+    margin-bottom: 30px;
+    transition: all ease-in 0.2s;
+    &:hover{
+        color: $main-hover-color;
+    }
+}
+.time{
+    float: right;
+}

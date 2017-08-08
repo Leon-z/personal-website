@@ -29,6 +29,7 @@ class PortfolioCard extends React.Component {
                 onMouseEnter={this.handleHover}
                 onMouseLeave={this.handleLeave}
                 ref={ref=>this.card=ref}
+                data-role="portfolio-card"
             >
                 <header className="portfolio-card-header">
                     {title}

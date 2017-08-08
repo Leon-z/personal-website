@@ -9,6 +9,8 @@ import {withRouter} from 'react-router';
 import * as App from '../pages/App';
 import * as Home from '../pages/Home';
 import * as Article from '../pages/Article';
+import * as Portfolio from '../pages/Portfolio';
+import * as Category from '../pages/Category';
 
 const Root = withRouter(connectComponent(App));
 
@@ -22,7 +24,8 @@ const RouteConfig = () => (
         <Root>
             <Route exact path="/" component={connectComponent(Home)}/>
             <Route path="/article/:id" component={connectComponent(Article)}/>
-            {/*<Route path="/b" component={connectComponent(Home)}/>*/}
+            {/*<Route path="/portfolio" component={connectComponent(Portfolio)}/>*/}
+            <Route path="/category/:name" component={connectComponent(Category)}/>
         </Root>
     </Router>
 )

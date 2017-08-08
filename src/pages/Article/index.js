@@ -27,7 +27,7 @@ class Article extends React.Component {
     render() {
         const{
             loaded,
-            data:{banner,title,create_time,categories,content}
+            data:{banner,title,create_time,categories,content,visitors}
         } = this.state;
 
         //没有加载完渲染loading界面
@@ -43,6 +43,7 @@ class Article extends React.Component {
                         {categories.map(category=>(
                             <Link to={`/category/${category.name}`} className={style.category} key={category._id}>{category.name}</Link>
                         ))}
+                        <span className={style.visitors}>访问人数： {visitors}</span>
                     </p>
                     <div dangerouslySetInnerHTML={{__html: content}} className={`markdown-body ${style.main}`}/>
                 </article>
@@ -63,7 +64,7 @@ class Article extends React.Component {
             },
             actions:{articleGetDetail}
         }= this.props;
-
+        if(!id)return
         articleGetDetail({
             params:{id,},
             resolved:res=>{
