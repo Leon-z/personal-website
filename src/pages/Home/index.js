@@ -3,10 +3,11 @@
  */
 import React from 'react';
 
+import connectComponent from '../../store/connectComponent';
 import Banner from '../../components/Banner/Banner';
 import ArticleCard from '../../components/ArticleCard';
 import Pagination from '../../components/Pagination';
-// import AboutMeCard from '../../components/AboutMeCard/AboutMeCard';
+
 import {parse,stringify} from '../../utils/index';
 
 import style from './index.scss';
@@ -113,10 +114,10 @@ class Home extends React.Component {
     };
 }
 
-export const LayoutComponent = Home;
-export function mapStateToProps(state) {
+const LayoutComponent = Home;
+function mapStateToProps(state) {
     return {
 
     }
 }
-
+export default connectComponent({mapStateToProps,LayoutComponent})

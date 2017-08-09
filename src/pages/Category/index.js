@@ -4,9 +4,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
-import {parse, stringify} from '../../utils/index';
+
+import connectComponent from '../../store/connectComponent';
 import Banner from '../../components/Banner/Banner';
-import Loading from '../../components/Loading';
+// import Loading from '../../components/Loading';
 
 import style from './index.scss';
 
@@ -37,14 +38,14 @@ class Category extends React.Component {
                     detail={`这里有我对『 ${name} 』的思考和探索`}
                 />
                 <ul className={style.list}>
-                    {loaded ? data.articles.map((article) => (
+                    {loaded &&data.articles.map((article) => (
                         <Link  to={`/article/${article._id}`} key={article._id}>
                             <li className={style.item}>
                                 <span className={style.title}>{article.title}</span>
                                 <span className={style.time}>{moment(article.create_time).format('MM/DD/YYYY')}</span>
                             </li>
                         </Link>
-                    )) : <Loading/>}
+                    )) }
                 </ul>
 
             </div>
@@ -77,4 +78,4 @@ export const LayoutComponent = Category;
 export function mapStateToProps(state) {
     return {}
 }
-
+export default connectComponent({mapStateToProps,LayoutComponent})

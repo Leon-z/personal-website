@@ -7,25 +7,25 @@ import {
 import connectComponent from '../store/connectComponent';
 import {withRouter} from 'react-router';
 import * as App from '../pages/App';
-import * as Home from '../pages/Home';
-import * as Article from '../pages/Article';
-import * as Portfolio from '../pages/Portfolio';
-import * as Category from '../pages/Category';
+
+//代码分割组件
+import asyncComponent from '../utils/asyncComponent';
 
 const Root = withRouter(connectComponent(App));
 
-// // const Home = (location, callback) => {
-// //     require.ensure([], require => {
-// //         callback(null, connectComponent(require('../page/Home/')))
-// //     },'Home')
-// // };
+//代码分割
+const Home=asyncComponent(() => import(/* webpackChunkName: "home" */ '../pages/Home'));
+const Article=asyncComponent(() => import(/* webpackChunkName: "article" */ '../pages/Article'));
+const Category=asyncComponent(() => import(/* webpackChunkName: "category" */ '../pages/Category'));
+const Portfolio=asyncComponent(() => import(/* webpackChunkName: "category" */ '../pages/Portfolio'));
+
 const RouteConfig = () => (
     <Router>
         <Root>
-            <Route exact path="/" component={connectComponent(Home)}/>
-            <Route path="/article/:id" component={connectComponent(Article)}/>
-            {/*<Route path="/portfolio" component={connectComponent(Portfolio)}/>*/}
-            <Route path="/category/:name" component={connectComponent(Category)}/>
+            <Route exact path="/" component={Home}/>
+            <Route path="/article/:id" component={Article}/>
+            {/*<Route path="/portfolio" component={Portfolio}/>*/}
+            <Route path="/category/:name" component={Category}/>
         </Root>
     </Router>
 )

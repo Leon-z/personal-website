@@ -1,10 +1,13 @@
 import React from 'react';
+
+import connectComponent from '../../store/connectComponent';
 import Banner from '../../components/Banner/Banner';
 import PortfolioCard from '../../components/PortfolioCard/PortfolioCard';
 
 import style from './index.scss';
 
 import portfolioData from '../../source/portfolioData';
+
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
@@ -40,4 +43,5 @@ export const LayoutComponent = Portfolio;
 export function mapStateToProps(state) {
     return {}
 }
+export default connectComponent({mapStateToProps,LayoutComponent});
 

@@ -4,7 +4,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
-import {parse, stringify} from '../../utils/index';
+
+import connectComponent from '../../store/connectComponent';
 
 import style from './index.scss';
 import  '../../styles/ghmd.css';
@@ -64,7 +65,7 @@ class Article extends React.Component {
             },
             actions:{articleGetDetail}
         }= this.props;
-        if(!id)return
+        if(!id)re
         articleGetDetail({
             params:{id,},
             resolved:res=>{
@@ -85,4 +86,4 @@ export const LayoutComponent = Article;
 export function mapStateToProps(state) {
     return {}
 }
-
+export default connectComponent({mapStateToProps,LayoutComponent})
