@@ -17,7 +17,7 @@ const Root = withRouter(connectComponent(App));
 const Home=asyncComponent(() => import(/* webpackChunkName: "home" */ '../pages/Home'));
 const Article=asyncComponent(() => import(/* webpackChunkName: "article" */ '../pages/Article'));
 const Category=asyncComponent(() => import(/* webpackChunkName: "category" */ '../pages/Category'));
-const Portfolio=asyncComponent(() => import(/* webpackChunkName: "category" */ '../pages/Portfolio'));
+const Portfolio=asyncComponent(() => import(/* webpackChunkName: "portfolio" */ '../pages/Portfolio'));
 
 const RouteConfig = () => (
     <Router>

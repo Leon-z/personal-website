@@ -12,12 +12,14 @@ import {parse,stringify} from '../../utils/index';
 
 import style from './index.scss';
 
+const bannerURL= 'https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg';
 class Home extends React.Component {
     constructor(props) {
         super(props);
         //this.handleChange = this.handleChange.bind(this);
         this.state={
-            articles:[]
+            articles:[],
+            count:0
         }
     }
     componentDidMount(){
@@ -33,16 +35,15 @@ class Home extends React.Component {
         }
     }
     render() {
-        const {articles}= this.state;
-        const {
-            location:{search},
-        }= this.props;
+        const {articles,count}= this.state;
+        const {location:{search},}= this.props;
         const  {page} =parse(search);
+
         let mixHeight = window.screen.availHeight;//让页面最小高度等于电脑高度
         return (
             <div className={style.root} style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../../images/banner_home.png')}
+                    imgURL={bannerURL}
                     title="Leon"
                     detail="没有比思考更复杂的享受"
                 >
@@ -64,7 +65,7 @@ class Home extends React.Component {
                     <Pagination
                         current={page}
                         pageSize={10}
-                        total={11}
+                        total={count}
                         onPreClick={this.onPreClick}
                         onNextClick={this.onNextClick}
                     />
@@ -105,7 +106,8 @@ class Home extends React.Component {
             resolved:res=>{
                 if(res){
                     this.setState({
-                        articles  : res.obj
+                        articles  : res.obj,
+                        count:res.count
                     })
                 }
             },

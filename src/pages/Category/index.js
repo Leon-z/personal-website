@@ -11,6 +11,8 @@ import Banner from '../../components/Banner/Banner';
 
 import style from './index.scss';
 
+const bannerURL= 'https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg';
+
 class Category extends React.Component {
     constructor(props) {
         super(props);
@@ -33,15 +35,15 @@ class Category extends React.Component {
         return (
             <div className={style.root}>
                 <Banner
-                    imgURL={require('../../images/banner_home.png')}
+                    imgURL={bannerURL}
                     title="Leon"
                     detail={`这里有我对『 ${name} 』的思考和探索`}
                 />
                 <ul className={style.list}>
                     {loaded &&data.articles.map((article) => (
-                        <Link  to={`/article/${article._id}`} key={article._id}>
+                        <Link  to={`/article/${article._id}`} key={article._id} title={style.title}>
                             <li className={style.item}>
-                                <span className={style.title}>{article.title}</span>
+                                <span className={style.title} >{article.title}</span>
                                 <span className={style.time}>{formatTimestamp(article.create_time,'MM/DD/YYYY')}</span>
                             </li>
                         </Link>

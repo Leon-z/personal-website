@@ -8,6 +8,7 @@ import style from './index.scss';
 
 import portfolioData from '../../source/portfolioData';
 
+const bannerURL= 'https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg';
 class Portfolio extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +19,7 @@ class Portfolio extends React.Component {
         return (
             <div className={style.root} style={{minHeight: mixHeight}}>
                 <Banner
-                    imgURL={require('../../images/banner_home.png')}
+                    imgURL={bannerURL}
                     title="Portfolio"
                     detail="there are some projects "
                 />
