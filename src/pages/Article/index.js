@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import {Link} from 'react-router-dom';
-import moment from 'moment';
 
+import {formatTimestamp} from '../../utils/index';
 import connectComponent from '../../store/connectComponent';
 
 import style from './index.scss';
@@ -40,7 +40,7 @@ class Article extends React.Component {
                 <article className={style.article}>
                     <h3 className={style.title}>{title}</h3>
                     <p className={style.info}>
-                        <span className={style.time}>{moment(create_time).format('MM/DD/YYYY')}</span>
+                        <span className={style.time}>{formatTimestamp(create_time,'MM/DD/YYYY')}</span>
                         {categories.map(category=>(
                             <Link to={`/category/${category.name}`} className={style.category} key={category._id}>{category.name}</Link>
                         ))}

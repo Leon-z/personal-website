@@ -3,11 +3,11 @@
  */
 import React from 'react';
 import {Link} from 'react-router-dom';
-import moment from 'moment';
 
 import connectComponent from '../../store/connectComponent';
+import {formatTimestamp} from '../../utils/index';
 import Banner from '../../components/Banner/Banner';
-// import Loading from '../../components/Loading';
+// // import Loading from '../../components/Loading';
 
 import style from './index.scss';
 
@@ -42,7 +42,7 @@ class Category extends React.Component {
                         <Link  to={`/article/${article._id}`} key={article._id}>
                             <li className={style.item}>
                                 <span className={style.title}>{article.title}</span>
-                                <span className={style.time}>{moment(article.create_time).format('MM/DD/YYYY')}</span>
+                                <span className={style.time}>{formatTimestamp(article.create_time,'MM/DD/YYYY')}</span>
                             </li>
                         </Link>
                     )) }
@@ -73,7 +73,6 @@ class Category extends React.Component {
         })
     }
 }
-
 export const LayoutComponent = Category;
 export function mapStateToProps(state) {
     return {}

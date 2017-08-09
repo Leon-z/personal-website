@@ -3,7 +3,8 @@
  */
 import React from 'react';
 import {Link} from 'react-router-dom';
-import  moment from 'moment';
+
+import {formatTimestamp} from '../../utils';
 import style from './index.scss';
 
 const ArticleCard = ({banner, categories, description, title, create_time, _id}) => (
@@ -12,7 +13,7 @@ const ArticleCard = ({banner, categories, description, title, create_time, _id})
         <Link to={`/article/${_id}`}>
             <div className={style.bg} style={{backgroundImage: `url(${banner})`}}/>
             <p className={style.info}>
-                <span className={style.time}>{moment(create_time).format('MM/DD/YYYY')}</span>
+                <span className={style.time}>{formatTimestamp(create_time,'MM/DD/YYYY')}</span>
                 {categories.map((category) => {
                     return <Link key={category._id} to={`/category/${category.name}`}
                                  className={style.category}>{category.name}</Link>
