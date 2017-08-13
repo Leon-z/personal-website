@@ -18,8 +18,18 @@
     line-height: 1.1;
     font-size: 80px;
     margin-bottom: 10px;
+    text-shadow: 0 0 1px #000;
+    transition: all 0.3s ease;
+    &:hover{
+        text-shadow: 5px 5px 1px #000;
+    }
 }
 .detail{
     font-weight: 300;
     font-size: 18px;
+    text-shadow: 0 0 1px #000;
+    transition: all 0.3s ease;
+    &:hover{
+        text-shadow: 5px 5px 1px #000;
+    }
 }

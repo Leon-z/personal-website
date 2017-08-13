@@ -11,7 +11,7 @@ import Banner from '../../components/Banner/Banner';
 
 import style from './index.scss';
 
-const bannerURL= 'https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg';
+const bannerURL= require('../../images/WechatIMG260.jpg');
 
 class Category extends React.Component {
     constructor(props) {

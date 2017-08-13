@@ -10,7 +10,7 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <footer className={style.root}>
+            <footer className={style.root} data-role="footer">
                 <SocialLink/>
                 <p className={style.copyright}>
                     Copyright &copy;2017

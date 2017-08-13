@@ -3,6 +3,7 @@
  */
 import React from 'react';
 
+
 import connectComponent from '../../store/connectComponent';
 import Banner from '../../components/Banner/Banner';
 import ArticleCard from '../../components/ArticleCard';
@@ -12,7 +13,7 @@ import {parse,stringify} from '../../utils/index';
 
 import style from './index.scss';
 
-const bannerURL= 'https://luoleiorg.b0.upaiyun.com/tmp/yasuko/yasuko.jpg';
+const bannerURL= require('../../images/blog_banner.png');
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -49,8 +50,9 @@ class Home extends React.Component {
                 >
                 </Banner>
                 <div className={style.articles}>
-                    {articles.map((article)=>(
+                    {articles.map((article,index)=>(
                         <ArticleCard
+                            index={index+2}
                             key={article._id}
                             banner={article.banner}
                             categories={article.categories}

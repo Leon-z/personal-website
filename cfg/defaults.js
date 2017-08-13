@@ -70,7 +70,7 @@ function getDefaultModules() {
                 use: ['style-loader', 'css-loader', 'stylus-loader']
             },
             {
-                test: /\.(png|jpg|gif|woff|woff2|svg|eot|ttf)$/,
+                test: /\.(png|jpg|gif|woff|woff2|svg|eot|ttf|jpeg)$/,
                 use: ['url-loader']
             },
             {
