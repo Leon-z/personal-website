@@ -13,7 +13,7 @@ import {parse,stringify} from '../../utils/index';
 
 import style from './index.scss';
 
-const bannerURL= require('../../images/blog_banner.png');
+const bannerURL= 'http://otmic6qtv.bkt.clouddn.com/blog_banner.png';
 class Home extends React.Component {
     constructor(props) {
         super(props);
