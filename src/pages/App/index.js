@@ -40,7 +40,7 @@ class App extends React.Component {
                 <ReactCSSTransitionGroup
                     transitionName="page-animation"
                     transitionEnterTimeout={500}
-                    transitionLeaveTimeout={0}
+                    transitionLeaveTimeout={200}
                 >
                     <div
                         key={this.props.location.pathname}

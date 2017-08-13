@@ -21,7 +21,7 @@
 
     .page-animation-leave {
         opacity: 1;
-        transition: all 0ms ease-out;
+        transition: all 200ms ease-out;
     }
 
     .page-animation-leave.page-animation-leave-active {
