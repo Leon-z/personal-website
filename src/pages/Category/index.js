@@ -36,7 +36,7 @@ class Category extends React.Component {
             <div className={style.root}>
                 <Banner
                     imgURL={bannerURL}
-                    title="Leon"
+                    title={name}
                     detail={`这里有我对『 ${name} 』的思考和探索`}
                 />
                 <ul className={style.list}>

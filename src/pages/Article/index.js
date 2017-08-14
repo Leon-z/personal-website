@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 
 import {formatTimestamp} from '../../utils/index';
 import connectComponent from '../../store/connectComponent';
+import Banner from '../../components/Banner/Banner';
 
 import style from './index.scss';
 import  '../../styles/ghmd.css';
@@ -36,7 +37,9 @@ class Article extends React.Component {
 
         return (
             <div className={style.root}>
-                <div className={style.banner} style={{backgroundImage:`url(${banner})`}}/>
+                <Banner
+                    imgURL={banner}
+                />
                 <article className={style.article}>
                     <h3 className={style.title}>{title}</h3>
                     <p className={style.info}>

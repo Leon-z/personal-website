@@ -1,10 +1,24 @@
 .root{
+    position: relative;
     height: 417px;
+}
+.bg{
+    position: absolute;
+    z-index:0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
     background-color: #808080;
     background-size:cover;
-
+    transition: all ease-in 0.4s;
 }
+
 .content{
+    position: relative;
+    z-index: 1;
+
     padding: 150px 0;
     margin: 0 auto;
 

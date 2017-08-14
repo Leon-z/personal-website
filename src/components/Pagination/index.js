@@ -15,7 +15,7 @@ export default class Pagination extends Component {
     render() {
         const {current, pageSize, total, onPreClick, onNextClick} = this.props;
         const preCanClick = current > 1,
-            nextCanClick = pageSize * current <= total,
+            nextCanClick = pageSize * current < total,
             prevCls = classnames({
                 "pre": preCanClick,
                 "pre-disable": !preCanClick
