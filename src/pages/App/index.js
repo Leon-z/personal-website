@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import {Route,} from 'react-router-dom';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -11,6 +10,7 @@ import Footer from '../../components/Footer/Footer';
 import  'Styles/reset.scss';
 import 'normalize.css/normalize.css';
 import styles from './index.scss';
+
 //代码分割组件
 import asyncComponent from '../../utils/asyncComponent';
 
@@ -25,33 +25,24 @@ class App extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentWillReceiveProps(nextProps){
+
+    componentWillReceiveProps(nextProps) {
 
         //当路由切换时
-        if(this.props.location !== nextProps.location){
-            window.scrollTo(0,0)
+        if (this.props.location !== nextProps.location) {
+            window.scrollTo(0, 0)
         }
     }
+
     render() {
 
         return (
             <div className={styles.root}>
                 <Header />
-                <ReactCSSTransitionGroup
-                    transitionName="page-animation"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={200}
-                >
-                    <div
-                        key={this.props.location.pathname}
-                    >
-                        <Route exact path="/" component={Home}/>
-                        <Route path="/article/:id" component={Article}/>
-                        {/*<Route path="/portfolio" component={Portfolio}/>*/}
-                        <Route path="/category/:name" component={Category}/>
-                    </div>
-
-                </ReactCSSTransitionGroup>
+                <Route exact path="/" component={Home}/>
+                <Route path="/article/:id" component={Article}/>
+                {/*<Route path="/portfolio" component={Portfolio}/>*/}
+                <Route path="/category/:name" component={Category}/>
                 <Footer/>
             </div>
 
