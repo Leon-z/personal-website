@@ -37,13 +37,7 @@ let config = Object.assign({}, baseConfig, {
             minChunks: Infinity,
             filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
-        new UglifyJsPlugin({
-            output: {
-                comments: false
-            },
-            minimize:true,
-            mangle: false
-        }),
+
         new CompressionWebpackPlugin({ //gzip 压缩
             asset: '[path].gz[query]',
             algorithm: 'gzip',
@@ -56,7 +50,17 @@ let config = Object.assign({}, baseConfig, {
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
-        })
+        }),
+        new UglifyJsPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            minimize:true,
+            mangle: false
+        }),
     ],
     module: defaultSettings.getDefaultModules()
 });
