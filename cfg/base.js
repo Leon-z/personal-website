@@ -14,6 +14,7 @@ module.exports = {
         contentBase: './src/',
         historyApiFallback: true,
         hot: true,
+        hotOnly: true,
         port: defaultSettings.port,
         publicPath: defaultSettings.publicPath,
         noInfo: false

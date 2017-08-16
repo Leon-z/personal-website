@@ -28,12 +28,13 @@ let config = Object.assign({}, baseConfig, {
         publicPath: defaultSettings.publicPath
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('development') //定义生产环境
             }
         }),
-        new webpack.HotModuleReplacementPlugin(),
+
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
@@ -49,28 +50,7 @@ let config = Object.assign({}, baseConfig, {
             inject: 'body' // Inject all scripts into the body
         })
     ],
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        disableHostCheck: true,
-        historyApiFallback: true,
-        hot: true,
-        inline: true,
-        progress: true,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: 1000
-        },
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8088',
-            },
 
-            // '/areas': {
-            //     target: 'http://datavmap-public.oss-cn-hangzhou.aliyuncs.com',
-            //     changeOrigin: true
-            // }
-        }
-    },
     module: defaultSettings.getDefaultModules()
 });
 
