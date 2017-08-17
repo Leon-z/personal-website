@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink} from 'react-router-dom';
 import classnames from 'classnames';
 
+import Logo from '../Logo';
 import style from './Header.scss';
 
 class Header extends React.Component {
@@ -37,7 +38,7 @@ class Header extends React.Component {
         });
         return (
             <header className={style[rootCls]}>
-                <NavLink to='/' exact className={style[logoCls]}>Leon</NavLink>
+                <NavLink to='/' exact className={style[logoCls]}><Logo/></NavLink>
                 <nav className={style.nav}>
                     <NavLink to='/' exact activeClassName={style.active} className={style[navItemCls]}>Home</NavLink>
                     {/*<NavLink to='/archive' exact activeClassName={style.active} className={style[navItemCls]}>Archive</NavLink>*/}
