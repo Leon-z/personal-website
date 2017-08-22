@@ -7,8 +7,17 @@ import configureStore from './store/configureStore';
 import Router from './router';
 const store = configureStore();
 
-ReactDOM.render((
-    <Provider store={store}>
-        <Router />
-    </Provider>
-), document.getElementById('app'));
+
+!(function () {
+    const node = document.querySelector('#app .web_loading');
+
+    console.log(node.className+=' fade_out');
+})();
+
+setTimeout(()=>{
+    ReactDOM.render((
+        <Provider store={store}>
+            <Router />
+        </Provider>
+    ), document.getElementById('app'));
+},300);

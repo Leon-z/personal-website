@@ -1,12 +1,20 @@
 @import "../../styles/variables";
 
 .root {
+    animation:fade-in 0.5s ease 0s forwards ;
+}
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 //一些全局的样式
 :global {
-
     //页面切换动画
     .page-animation-enter {
         opacity: 0;
