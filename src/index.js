@@ -10,8 +10,7 @@ const store = configureStore();
 
 !(function () {
     const node = document.querySelector('#app .web_loading');
-
-    console.log(node.className+=' fade_out');
+    node.className+=' fade_out';
 })();
 
 setTimeout(()=>{
@@ -20,4 +19,4 @@ setTimeout(()=>{
             <Router />
         </Provider>
     ), document.getElementById('app'));
-},300);
+},30000);
