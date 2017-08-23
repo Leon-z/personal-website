@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 import Router from './router';
 const store = configureStore();
 
-
+//js加载完毕 移除loading。
 !(function () {
     const node = document.querySelector('#app .web_loading');
     node.className+=' fade_out';

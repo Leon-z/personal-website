@@ -5,7 +5,7 @@ let webpack = require('webpack');
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
-const {UglifyJsPlugin} = webpack.optimize; // 压缩js
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin') // 压缩js
 const {CommonsChunkPlugin} = webpack.optimize; // 压缩js
 const CompressionWebpackPlugin = require('compression-webpack-plugin');//gzip 压缩
 // Add needed plugins here
@@ -37,7 +37,15 @@ let config = Object.assign({}, baseConfig, {
             minChunks: Infinity,
             filename: 'js/[name].[chunkhash:8].chunk.js'
         }),
-
+        new UglifyJSPlugin({
+            compress: {
+                warnings: false
+            },
+            output: {
+                comments: false
+            },
+            mangle: false
+        }),
         new CompressionWebpackPlugin({ //gzip 压缩
             asset: '[path].gz[query]',
             algorithm: 'gzip',
@@ -51,16 +59,7 @@ let config = Object.assign({}, baseConfig, {
             template: './src/index.html',
             inject: 'body' // Inject all scripts into the body
         }),
-        new UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false
-            },
-            minimize:true,
-            mangle: false
-        }),
+
     ],
     module: defaultSettings.getDefaultModules()
 });
