@@ -14,25 +14,31 @@ $stroke-step: 7%;
 .copy {
     fill: none;
     stroke: white;
-    stroke-dasharray: $stroke-step $stroke-step * ($max - 1);
     stroke-width: 15px;
 
-    animation: stroke-offset 5s infinite linear;
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
 
     @for $item from 1 through $max {
         $stroke-color: nth($colors, $item);
 
         &:nth-child(#{$item}) {
             stroke: $stroke-color;
-            stroke-dashoffset: $stroke-step * $item;
+            animation: stroke-offset#{$item} 8s infinite ease-in-out forwards ;
+        }
+    }
+}
+@for $item from 1 through $max {
+    @keyframes stroke-offset#{$item} {
+        50% {
+            stroke-dasharray: $stroke-step $stroke-step * 4;
+            stroke-dashoffset: $stroke-step*$item;
+        }
+        70% {
+            stroke-dasharray: $stroke-step $stroke-step * 4;
+            stroke-dashoffset: $stroke-step*$item;
         }
     }
 }
 
-@keyframes stroke-offset {
-    50% {
-        stroke-dashoffset: $stroke-step * $max;
-        stroke-dasharray: 0 $stroke-step * $max*2.5;
-    }
-}
 
