@@ -19,4 +19,4 @@ setTimeout(()=>{
             <Router />
         </Provider>
     ), document.getElementById('app'));
-},300);
+},1000);
