@@ -23,6 +23,7 @@ let config = Object.assign({}, baseConfig, {
         chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
         publicPath: defaultSettings.publicPath
     },
+    devtool: "source-map",
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
