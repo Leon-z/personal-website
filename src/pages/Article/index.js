@@ -69,6 +69,8 @@ class Article extends React.Component {
             actions:{articleGetDetail}
         }= this.props;
         if(!id)re
+        window.gtag('set', 'page', `article/${id}`);
+        window.gtag('send', 'pageview');
         articleGetDetail({
             params:{id,},
             resolved:res=>{
