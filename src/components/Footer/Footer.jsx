@@ -15,7 +15,7 @@ class Footer extends React.Component {
                 <p className={style.copyright}>
                     Copyright &copy;2017
                     <br/>
-                    <a href="http://www.miitbeian.gov.cn">粤ICP备16064302号</a>
+                    <a href="http://www.miitbeian.gov.cn"> 粤ICP备16064302号 </a>
                 </p>
             </footer>
         )
